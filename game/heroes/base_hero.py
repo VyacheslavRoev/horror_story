@@ -5,11 +5,12 @@ class BaseHero:
     """Базовый класс героя."""
 
     def __init__(
-            self, health, force, dexterity,
+            self, name, health, force, dexterity,
             endurance, magic, speed
             ):
         """Здоровье, сила, ловкость,
         выносливость, способности к магии, скорость, опыт, уровень."""
+        self.name = name
         self.health = health
         self.force = force
         self.dexterity = dexterity
@@ -44,6 +45,7 @@ class BaseHero:
     def __str__(self):
         return f'''
 Параметры вашего героя:
+имя - {self.name}
 здоровье - {self.health}
 сила - {self.force}
 ловкость - {self.dexterity}
