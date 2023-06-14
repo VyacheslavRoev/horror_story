@@ -1,4 +1,4 @@
-from training_hero import traning
+from trainings.training_hero import traning
 
 
 def main():

@@ -23,7 +23,8 @@ class SimpleSword(CloseBase):
 
     def __str__(self):
         return (
-            f'Меч {self.name}, длиной {self.blade_lenght} м. '
+            f'{self.name}, длиной {self.blade_lenght} м. '
+            f'Класс - {self.class_weapon}. '
             f'Он изготовлен из материала {self.material}, '
             f'Рубящий удар - {self.impact_force}, '
             f'Колющий удар - {self.injection}, '
