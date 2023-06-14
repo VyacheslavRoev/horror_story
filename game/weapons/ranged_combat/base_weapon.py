@@ -3,13 +3,14 @@ class BaseRangetCombat:
 
     def __init__(self, name, material, shot_power, ammunition, long_shot):
         """Название, материал, сила выстрела, количество боеприпасов,
-          дальность выстрела, класс оружия."""
+          дальность выстрела, класс оружия, прочность"""
         self.name = name
         self.material = material
         self.shot_power = shot_power
         self.ammunition = ammunition
         self.long_shot = long_shot
         self.class_weapon = 'Дальний бой'
+        self.durability = 100
 
     def __str__(self):
         return (

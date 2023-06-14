@@ -5,15 +5,17 @@ class BaseEnemy:
     """Базовый класс врага"""
 
     def __init__(self, name, health, force, dexterity,
-                 protection, speed, lenght, experience, level):
+                 protection, speed, magic, lenght, experience, level):
         """Имя, здоровье, сила, ловкость,
-        защита, скорость, расстояние до врага, опыт за врага, уровень"""
+        защита, скорость, способности к магии,
+        расстояние до врага, опыт за врага, уровень"""
         self.name = name
         self.health = health
         self.force = force
         self.dexterity = dexterity
         self.protection = protection
         self.speed = speed
+        self.magic = magic
         self.lenght = lenght
         self.experience = experience
         self.level = level
@@ -68,3 +70,12 @@ class BaseEnemy:
         self.health -= magic_health
         effect = ((magic_health * 3) + self.magic + damage) // (randint(1, 10))
         return effect
+
+    def __str__(self):
+        return (f'{self.name}, здоровье - {self.health}, сила - {self.force}, '
+                f'ловкость - {self.dexterity}, '
+                f'способности к магии - {self.magic}, '
+                f'скорость - {self.speed}, '
+                f'расстояние до врага - {self.lenght}, '
+                f'защита - {self.protection}, '
+                f'опыт - {self.experience}, уровень - {self.level}')

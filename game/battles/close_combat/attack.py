@@ -14,7 +14,7 @@ def enemy_attack_close_combat(enemy, weapon, hero):
         print(weapon.slashing_blow())
         print(ENEMY_MAX_DAMAGE)
         print(hero.taking_damage(effect))
-        if hero.health < 0:
+        if hero.health <= 0:
             return
         enemy_attack_close_combat(enemy, weapon, hero)
     else:
@@ -38,7 +38,7 @@ def attack_close_combat(attack, weapon, hero, enemy, weapon_enemy):
             print(weapon.slashing_blow())
             print(DAMAGE)
             print(enemy.taking_damage(effect))
-            if enemy.health < 0:
+            if enemy.health <= 0:
                 return
             enemy_attack_close_combat(enemy, weapon_enemy, hero)
     elif attack == PRICK:
@@ -54,7 +54,7 @@ def attack_close_combat(attack, weapon, hero, enemy, weapon_enemy):
             print(weapon.stabbing_blow())
             print(DAMAGE)
             print(enemy.taking_damage(effect))
-            if enemy.health < 0:
+            if enemy.health <= 0:
                 return
             enemy_attack_close_combat(enemy, weapon_enemy, hero)
 
@@ -67,9 +67,9 @@ def get_close_weapon(index, hero, enemy, enemy_weapon):
     new_command = input()
     if new_command == YES:
         while new_command != WEAPON:
-            if enemy.health < 0:
+            if enemy.health <= 0:
                 return
-            if hero.health < 0:
+            if hero.health <= 0:
                 return
             if weapon.durability <= 0:
                 return

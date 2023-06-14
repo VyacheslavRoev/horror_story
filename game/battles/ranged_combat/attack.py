@@ -19,7 +19,7 @@ def enemy_attack_ranged_combat(enemy, weapon, hero):
         print(weapon.shot())
         print(ENEMY_MAX_DAMAGE)
         print(hero.taking_damage(effect))
-        if hero.health < 0:
+        if hero.health <= 0:
             return
         enemy_attack_ranged_combat(enemy, weapon, hero)
     else:
@@ -48,7 +48,7 @@ def attack_ranged_combat(weapon, hero, enemy, weapon_enemy):
         print(weapon.shot())
         print(DAMAGE)
         print(enemy.taking_damage(effect))
-        if enemy.health < 0:
+        if enemy.health <= 0:
             return
         if weapon_enemy.class_weapon == 'Ближний бой':
             enemy_attack_close_combat(enemy, weapon_enemy, hero)
@@ -64,9 +64,9 @@ def get_ranged_weapon(index, hero, enemy, enemy_weapon):
     new_command = input()
     if new_command == YES:
         while new_command != WEAPON:
-            if enemy.health < 0:
+            if enemy.health <= 0:
                 return
-            if hero.health < 0:
+            if hero.health <= 0:
                 return
             if weapon.ammunition <= 0:
                 return
