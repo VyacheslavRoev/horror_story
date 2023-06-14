@@ -1,5 +1,5 @@
-from weapons.list_weapons_lev_1 import (training_bow, training_stave,
-                                        traning_sword)
+from weapons.training_weapons import (training_bow, training_stave,
+                                      traning_sword)
 
 traning_inventary = [traning_sword, training_bow, training_stave]
 

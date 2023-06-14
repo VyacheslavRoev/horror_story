@@ -58,7 +58,7 @@ def attack_magic_combat(weapon, hero, enemy, weapon_enemy, magic_health):
         print(weapon.mythical_strike())
         print(DAMAGE)
         print(enemy.magic_taking_damage(effect))
-        if enemy.health < 0:
+        if enemy.health <= 0:
             return
         if weapon_enemy.class_weapon == 'Ближний бой':
             enemy_attack_close_combat(enemy, weapon_enemy, hero)
@@ -76,9 +76,9 @@ def get_magic_weapon(index, hero, enemy, enemy_weapon):
     new_command = input()
     if new_command == YES:
         while new_command != WEAPON:
-            if enemy.health < 0:
+            if enemy.health <= 0:
                 return
-            if hero.health < 0:
+            if hero.health <= 0:
                 return
             new_command = input(WHAT_DOING)
             if new_command == MAGIC:

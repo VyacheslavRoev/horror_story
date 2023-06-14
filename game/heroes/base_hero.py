@@ -9,7 +9,8 @@ class BaseHero:
             endurance, magic, speed
             ):
         """Здоровье, сила, ловкость,
-        выносливость, способности к магии, скорость, опыт, уровень."""
+        выносливость, способности к магии,
+        скорость, защита, опыт, уровень."""
         self.name = name
         self.health = health
         self.force = force
