@@ -1,9 +1,9 @@
 from heroes.inventary_hero import get_weapon
-from texts.actions import (INVENTARY_WEAPON_MESSAGE, SHOOT, WEAPON, WHAT_DOING,
-                           YES)
+from texts.actions import INVENTARY_WEAPON_MESSAGE
 from texts.attack_messages import (DAMAGE, ENEMY_FAIL, ENEMY_MAX_DAMAGE,
-                                   YOU_FAIL, YOU_MAX_DAMAGE)
+                                   YOU_FAIL, YOU_MAX_DAMAGE, RANGED_ATTACK)
 from battles.close_combat.attack import enemy_attack_close_combat
+from heroes.walking_hero import walking_hero_enemy, run_hero
 
 
 def enemy_attack_ranged_combat(enemy, weapon, hero):
@@ -61,17 +61,23 @@ def get_ranged_weapon(index, hero, enemy, enemy_weapon):
     weapon = get_weapon(index)
     print(f'Вы выбрали {weapon}')
     print(INVENTARY_WEAPON_MESSAGE)
-    new_command = input()
-    if new_command == YES:
-        while new_command != WEAPON:
+    new_command = int(input())
+    if new_command == 1:
+        while new_command != 2:
             if enemy.health <= 0:
                 return
             if hero.health <= 0:
                 return
             if weapon.ammunition <= 0:
                 return
-            new_command = input(WHAT_DOING)
-            if new_command == SHOOT:
+            attack_command = int(input(RANGED_ATTACK))
+            if attack_command == 1:
                 attack_ranged_combat(weapon,
                                      hero, enemy,
                                      enemy_weapon)
+            elif attack_command == 2:
+                walking_hero_enemy()
+            elif attack_command == 3:
+                run_hero()
+            elif attack_command == 0:
+                return

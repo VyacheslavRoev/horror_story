@@ -1,14 +1,14 @@
 YES = 'да'
 NO = 'нет'
-HACK = 'рубить'
-PRICK = 'колоть'
-SHOOT = 'стрелять'
-MAGIC = 'колдовать'
 ENDURANCE = 'прочность'
+SHOOT = 'S'
+WEAPON = 'W'
+MAGIC = 'M'
 HERO = 'герой'
 INVENTARY = 'инв'
-WEAPON = 'оружие'
-INVENTARY_WEAPON_MESSAGE = (f'Для смены оружия введите {WEAPON}. '
-                            f'Для продолжения введите {YES}')
+INVENTARY_WEAPON_MESSAGE = (
+    '''Для продолжения введите "1"
+Для смены оружия введите "2" '''
+)
 WHAT_DOING = 'Что будем делать? '
 MAGIC_HEALTH = 'Сколько жизненных сил вы готовы вложить в колдовство? '

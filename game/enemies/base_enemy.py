@@ -71,11 +71,21 @@ class BaseEnemy:
         effect = ((magic_health * 3) + self.magic + damage) // (randint(1, 10))
         return effect
 
+    def enemy_info(self):
+        """Информация о противнике."""
+        return (
+            f'''имя - {self.name}
+            здоровье - {self.health}
+            сила - {self.force}
+            ловкость - {self.dexterity}
+            защита - {self.protection}
+            скорость - {self.speed}
+            способности к магии - {self.magic}
+            расстояние до врага - {self.lenght}
+            уровень - {self.level}
+            '''
+        )
+
     def __str__(self):
-        return (f'{self.name}, здоровье - {self.health}, сила - {self.force}, '
-                f'ловкость - {self.dexterity}, '
-                f'способности к магии - {self.magic}, '
-                f'скорость - {self.speed}, '
-                f'расстояние до врага - {self.lenght}, '
-                f'защита - {self.protection}, '
-                f'опыт - {self.experience}, уровень - {self.level}')
+        return (f'{self.name}, здоровье - {self.health}, '
+                f'уровень - {self.level}')
