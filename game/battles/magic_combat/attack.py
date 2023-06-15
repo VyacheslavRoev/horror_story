@@ -2,10 +2,10 @@ from random import randint
 from heroes.inventary_hero import get_weapon
 from battles.close_combat.attack import enemy_attack_close_combat
 from battles.ranged_combat.attack import enemy_attack_ranged_combat
-from texts.actions import (INVENTARY_WEAPON_MESSAGE, MAGIC, WEAPON, WHAT_DOING,
-                           YES, MAGIC_HEALTH)
+from texts.actions import (INVENTARY_WEAPON_MESSAGE, MAGIC_HEALTH)
 from texts.attack_messages import (DAMAGE, ENEMY_FAIL, ENEMY_MAX_DAMAGE,
-                                   YOU_FAIL, YOU_MAX_DAMAGE)
+                                   YOU_FAIL, YOU_MAX_DAMAGE, MAGIC_ATTACK)
+from heroes.walking_hero import walking_hero_enemy, run_hero
 
 
 def enemy_attack_magic_combat(enemy, weapon, hero):
@@ -73,16 +73,22 @@ def get_magic_weapon(index, hero, enemy, enemy_weapon):
     weapon = get_weapon(index)
     print(f'Вы выбрали {weapon}')
     print(INVENTARY_WEAPON_MESSAGE)
-    new_command = input()
-    if new_command == YES:
-        while new_command != WEAPON:
+    new_command = int(input())
+    if new_command == 1:
+        while new_command != 2:
             if enemy.health <= 0:
                 return
             if hero.health <= 0:
                 return
-            new_command = input(WHAT_DOING)
-            if new_command == MAGIC:
+            attack_command = int(input(MAGIC_ATTACK))
+            if attack_command == 1:
                 magic_health = int(input(MAGIC_HEALTH))
                 attack_magic_combat(weapon,
                                     hero, enemy,
                                     enemy_weapon, magic_health)
+            elif attack_command == 2:
+                walking_hero_enemy()
+            elif attack_command == 3:
+                run_hero()
+            elif attack_command == 0:
+                return

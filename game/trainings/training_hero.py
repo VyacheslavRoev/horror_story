@@ -44,7 +44,8 @@ def traning():
         new_enemy = int(input())
         enemy, weapon = get_training_enemy_and_weapon(new_enemy)
         print(f'Ваш противник - {enemy}')
-        print(f'Его оружие - {weapon}')
+        print(f'Его оружие - {weapon.get_weapon_enemy()}')
+        print(f'Расстояние до противнике - {enemy.lenght}')
         print(MESSAGE_NEW_TRAINING)
         while new_traning != NO:
             if enemy.health <= 0:

@@ -4,8 +4,8 @@
 class CloseBase:
 
     def __init__(self, name, material, impact_force):
-        """Свойства - название, материал, сила удара, прочность,
-        класс оружия, количество зарядов"""
+        """Свойства - название, материал, сила удара,
+        прочность, класс оружия, количество зарядов"""
         self.name = name
         self.material = material
         self.impact_force = impact_force
@@ -18,3 +18,9 @@ class CloseBase:
         self.durability = 500
         return (f'{self.name} заточен.'
                 f'Прочность восстановлена.')
+
+    def get_weapon_enemy(self):
+        """Информация об оружии противника."""
+        return (f'{self.name}, '
+                f'Изготовленный из материала - {self.material}, '
+                f'Класс оружия - {self.class_weapon}.')

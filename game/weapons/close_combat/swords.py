@@ -4,8 +4,9 @@ from weapons.close_combat.base_weapon import CloseBase
 class SimpleSword(CloseBase):
 
     def __init__(self, name, material, impact_force, injection, blade_length):
-        """Добавлены сила укола и длина клинка."""
+        """Добавлены дальность поражения, сила укола и длина клинка."""
         super().__init__(name, material, impact_force)
+        self.long_shot = 1
         self.injection = injection
         self.blade_lenght = blade_length
 
