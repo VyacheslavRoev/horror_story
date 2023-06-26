@@ -1,6 +1,6 @@
-from battles.close_combat.attack import get_close_weapon
-from battles.ranged_combat.attack import get_ranged_weapon
-from battles.magic_combat.attack import get_magic_weapon
+from battles.close_combat.preparing_for_battle import get_close_weapon
+from battles.ranged_combat.preparing_for_battle import get_ranged_weapon
+from battles.magic_combat.preparing_for_battle import get_magic_weapon
 from enemies.training_enemy import get_training_enemy
 from weapons.training_weapons import get_enemy_training_weapons
 from heroes.inventary_hero import list_inventary
@@ -15,6 +15,7 @@ from weapons.training_weapons import training_bow, traning_sword
 
 
 def get_training_enemy_and_weapon(index):
+    """Выбор противника."""
     if index == 1 or index == 2 or index == 3:
         enemy = get_training_enemy(index)
         weapon = get_enemy_training_weapons(index)
@@ -30,6 +31,7 @@ def repeat_traning(enemy, weapon):
         traning_sword.durability = 500
         enemy.health = 250
         weapon.durability = 500
+        weapon.ammunition = 10
         return traning()
     if new_traning == NO:
         return
@@ -43,6 +45,7 @@ def traning():
         print(GET_ENEMY)
         new_enemy = int(input())
         enemy, weapon = get_training_enemy_and_weapon(new_enemy)
+        max_health_enemy = enemy.max_health()
         print(f'Ваш противник - {enemy}')
         print(f'Его оружие - {weapon.get_weapon_enemy()}')
         print(f'Расстояние до противнике - {enemy.lenght}')
@@ -57,24 +60,26 @@ def traning():
                 return repeat_traning(enemy, weapon)
             if weapon.ammunition <= 0:
                 print(training_bow.not_ammunition())
-                return repeat_traning()
+                return repeat_traning(enemy, weapon)
             print(GET_TRAINING_WEAPON)
             new_traning = input(COMMAND)
             if new_traning == '1':
-                get_close_weapon(
+                action = get_close_weapon(
                     new_traning, traning_hero,
-                    enemy, weapon)
+                    enemy, weapon, max_health_enemy)
             elif new_traning == '2':
-                get_ranged_weapon(
+                action = get_ranged_weapon(
                     new_traning, traning_hero,
-                    enemy, weapon)
+                    enemy, weapon, max_health_enemy)
             elif new_traning == '3':
-                get_magic_weapon(
+                action = get_magic_weapon(
                     new_traning, traning_hero,
-                    enemy, weapon
+                    enemy, weapon, max_health_enemy
                 )
             elif new_traning == HERO:
                 print(f'{traning_hero}')
             elif new_traning == INVENTARY:
                 list_inventary()
+            if action == 2:
+                return repeat_traning(enemy, weapon)
     return print(END_TRAINING)
