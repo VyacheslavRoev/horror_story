@@ -26,11 +26,6 @@ class BaseHero:
         """Смерть."""
         return 'Вы убиты!'
 
-    def walking(self):
-        """Шагать."""
-        # Написать функцию
-        pass
-
     def taking_damage(self, damage):
         """Получение урона."""
         full_damage = (damage - self.protection -

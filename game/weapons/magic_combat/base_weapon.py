@@ -12,6 +12,12 @@ class BaseMagicCombat:
         self.durability = 100
         self.ammunition = 1
 
+    def get_weapon_enemy(self):
+        """Информация об оружии противника."""
+        return (f'{self.name}, '
+                f'Изготовленный из материала - {self.material}, '
+                f'Класс оружия - {self.class_weapon}.')
+
     def __str__(self):
         return (
             f'{self.name}. '

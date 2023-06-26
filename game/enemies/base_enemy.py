@@ -20,14 +20,21 @@ class BaseEnemy:
         self.experience = experience
         self.level = level
 
+    def max_health(self):
+        """Максимальное здоровье."""
+        max_health_enemy = self.health
+        return max_health_enemy
+
     def death(self):
         """Смерть."""
         return f'{self.name} убит!'
 
-    def walking(self):
-        """Шагать."""
-        # Написать функцию
-        pass
+    def distance(self, steps):
+        """Изменение расстояния до противника."""
+        self.lenght -= steps
+        if self.lenght == 0:
+            self.lenght = 1
+        return self.lenght
 
     def taking_damage(self, damage):
         """Получение урона."""
@@ -70,6 +77,14 @@ class BaseEnemy:
         self.health -= magic_health
         effect = ((magic_health * 3) + self.magic + damage) // (randint(1, 10))
         return effect
+
+    def response_action(self, max_health):
+        """Ответное действие."""
+        if self.health <= max_health / 10:
+            random_action = randint(0, 2)
+        else:
+            random_action = 0
+        return random_action
 
     def enemy_info(self):
         """Информация о противнике."""
