@@ -81,4 +81,5 @@ class BaseHero:
 скорость - {self.speed}
 защита - {self.protection}
 опыт - {self.experience}
-уровень - {self.level}'''
+уровень - {self.level}
+'''

@@ -1,9 +1,8 @@
-from trainings.training_hero import traning
+from main_menu import menu
 
 
 def main():
-    print('Начало игры.')
-    traning()
+    menu()
 
 
 if __name__ == '__main__':
