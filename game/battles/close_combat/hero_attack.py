@@ -10,7 +10,7 @@ def attack_close_combat(attack, weapon, hero, enemy,
     if weapon.long_shot < enemy.lenght:
         print(FAR_AWAY)
         return
-    if attack == 1:
+    if attack == '1':
         effect = hero.close_dealing_damage(weapon.impact_force)
         if effect == 0:
             print(YOU_FAIL)
@@ -35,7 +35,7 @@ def attack_close_combat(attack, weapon, hero, enemy,
                                       enemy.lenght, max_health_enemy)
             return fin
 
-    elif attack == 2:
+    elif attack == '2':
         effect = hero.close_dealing_damage(weapon.injection)
         if effect == 0:
             print(YOU_FAIL)

@@ -1,5 +1,10 @@
+import re
+
 from enemies.random_actions import enemy_random_action
-from texts.actions import SHAME, STEPS, FINISH
+from texts.actions import FINISH, SHAME, STEPS
+
+
+pattern = r'^[0-9]+$'
 
 
 def walking_hero_enemy(enemy, max_health_enemy,
@@ -12,10 +17,17 @@ def walking_hero_enemy(enemy, max_health_enemy,
         walking_hero = hero.speed
     else:
         walking_hero = enemy.lenght
-    steps = int(input(f'''
+    steps = input(f'''
 Какое количество шагов вы хотите сделать.
-Введите цифру от 0 до {walking_hero} '''))
-    distance = enemy.distance(steps)
+Введите цифру от 0 до {walking_hero} ''')
+    check = re.fullmatch(pattern, steps)
+    if not check:
+        fin = ''
+        return fin
+    if int(steps) > walking_hero or int(steps) < 0:
+        fin = ''
+        return fin
+    distance = enemy.distance(int(steps))
     print(f'''
 У вас получилось пройти {steps} шагов
 Противник в {distance} шагах от вас.''')

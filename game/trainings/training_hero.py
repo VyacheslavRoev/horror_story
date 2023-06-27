@@ -3,8 +3,9 @@ from battles.magic_combat.preparing_for_battle import get_magic_weapon
 from battles.ranged_combat.preparing_for_battle import get_ranged_weapon
 from enemies.training_enemy import get_training_enemy
 from heroes.inventary_hero import list_inventary
+from random_number_func import random_phrase
 from heroes.training_heroes import traning_hero
-from texts.actions import COMMAND, ERROR, FINISH
+from texts.actions import COMMAND, FINISH, ERROR_LIST
 from texts.attack_messages import WEAPON_FAIL
 from texts.training_messages import (END_TRAINING, GET_ENEMY,
                                      GET_TRAINING_WEAPON, MESSAGE_NEW_TRAINING,
@@ -13,12 +14,17 @@ from weapons.training_weapons import (get_enemy_training_weapons, training_bow,
                                       traning_sword)
 
 
-def get_training_enemy_and_weapon(index):
+def get_training_enemy_and_weapon():
     """Выбор противника."""
-    if index == 1 or index == 2 or index == 3:
-        enemy = get_training_enemy(index)
-        weapon = get_enemy_training_weapons(index)
-        return enemy, weapon
+    print(GET_ENEMY)
+    index = input(COMMAND)
+    while index not in ['1', '2', '3']:
+        print(random_phrase(ERROR_LIST))
+        print(GET_ENEMY)
+        index = input(COMMAND)
+    enemy = get_training_enemy(int(index))
+    weapon = get_enemy_training_weapons(int(index))
+    return enemy, weapon
 
 
 def repeat_traning(enemy, weapon):
@@ -33,7 +39,7 @@ def repeat_traning(enemy, weapon):
 def training(enemy, weapon, max_health_enemy):
     """Тренировка."""
     new_traning = ''
-    while new_traning != 0:
+    while new_traning != '0':
         if weapon.durability <= 0:
             print(WEAPON_FAIL, END_TRAINING)
             return repeat_traning(enemy, weapon)
@@ -42,42 +48,40 @@ def training(enemy, weapon, max_health_enemy):
             return repeat_traning(enemy, weapon)
         print(MESSAGE_NEW_TRAINING)
         print(GET_TRAINING_WEAPON)
-        new_traning = int(input(COMMAND))
-        if new_traning == 1:
+        new_traning = input(COMMAND)
+        if new_traning == '1':
             fin = get_close_weapon(
                 new_traning, traning_hero,
                 enemy, weapon, max_health_enemy)
             if fin == FINISH:
                 return repeat_traning(enemy, weapon)
-        if new_traning == 2:
+        if new_traning == '2':
             fin = get_ranged_weapon(
                 new_traning, traning_hero,
                 enemy, weapon, max_health_enemy)
             if fin == FINISH:
                 return repeat_traning(enemy, weapon)
-        if new_traning == 3:
+        if new_traning == '3':
             fin = get_magic_weapon(
                 new_traning, traning_hero,
                 enemy, weapon, max_health_enemy
             )
             if fin == FINISH:
                 return repeat_traning(enemy, weapon)
-        if new_traning == 0:
+        if new_traning == '0':
             print(END_TRAINING)
         else:
-            print(ERROR)
+            print(random_phrase(ERROR_LIST))
 
 
 def traning_menu():
     """Меню тренировки."""
     command_traning = ''
-    while command_traning != 0:
+    while command_traning != '0':
         print(NEW_TRAINING)
-        command_traning = int(input(COMMAND))
-        if command_traning == 1:
-            print(GET_ENEMY)
-            new_enemy = int(input(COMMAND))
-            enemy, weapon = get_training_enemy_and_weapon(new_enemy)
+        command_traning = input(COMMAND)
+        if command_traning == '1':
+            enemy, weapon = get_training_enemy_and_weapon()
             max_health_enemy = enemy.max_health()
             print(
                 f'''
@@ -86,11 +90,11 @@ def traning_menu():
 Расстояние до противнике - {enemy.lenght}
 ''')
             training(enemy, weapon, max_health_enemy)
-        elif command_traning == 2:
+        elif command_traning == '2':
             print(f'{traning_hero}')
-        elif command_traning == 3:
+        elif command_traning == '3':
             list_inventary()
-        elif command_traning == 0:
+        elif command_traning == '0':
             print(END_TRAINING)
         else:
-            print(ERROR)
+            print(random_phrase(ERROR_LIST))

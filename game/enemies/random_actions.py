@@ -11,7 +11,7 @@ def enemy_random_action(enemy, weapon_enemy,
         fin = enemy_attack(enemy, weapon_enemy, hero)
         return fin
     if randon_action == 0 and (distance >= weapon_enemy.long_shot):
-        walking_enemy_hero(enemy)
+        fin = walking_enemy_hero(enemy)
     else:
         print(RUN_ENEMY)
         command = int(input())
