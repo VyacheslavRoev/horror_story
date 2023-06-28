@@ -26,8 +26,8 @@ class BaseEnemy:
         return max_health_enemy
 
     def death(self):
-        """Смерть."""
-        return f'{self.name} убит!'
+        """Поражение."""
+        return f'{self.name} потерпел поражение!'
 
     def distance(self, steps):
         """Изменение расстояния до противника."""

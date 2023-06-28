@@ -6,25 +6,24 @@ class BaseHero:
 
     def __init__(
             self, name, health, force, dexterity,
-            endurance, magic, speed
+            magic, speed
             ):
         """Здоровье, сила, ловкость,
-        выносливость, способности к магии,
-        скорость, защита, опыт, уровень."""
+        способности к магии, скорость,
+        защита, опыт, принадлежность к дворянству."""
         self.name = name
         self.health = health
         self.force = force
         self.dexterity = dexterity
-        self.endurance = endurance
         self.magic = magic
         self.speed = speed
         self.protection = 1
         self.experience = 0
-        self.level = 1
+        self.nobility = 0
 
     def death(self):
-        """Смерть."""
-        return 'Вы убиты!'
+        """Поражение."""
+        return 'Вы потерпели поражение!'
 
     def taking_damage(self, damage):
         """Получение урона."""
@@ -76,10 +75,8 @@ class BaseHero:
 здоровье - {self.health}
 сила - {self.force}
 ловкость - {self.dexterity}
-выносливость - {self.endurance}
 способности к магии - {self.magic}
 скорость - {self.speed}
 защита - {self.protection}
 опыт - {self.experience}
-уровень - {self.level}
 '''
