@@ -1,5 +1,8 @@
 from random import randint
 
+from texts.actions import ONE, COMMAND, ERROR_LIST
+from random_number_func import random_phrase
+from heroes.create_heroes.finish_create import changing_properties_menu
 from heroes.create_heroes.changing_hero_properties import (army_hero,
                                                            bad_character_hero,
                                                            bad_habits_hero,
@@ -51,6 +54,7 @@ from texts.create_heroes.beggar import (ARMY_BEGGAR_FAMILY,
 
 
 def early_years_family(hero):
+    """Молодость в семье"""
     history_early_years = ''
     bad_habits = randint(1, 10)
     if bad_habits <= 4:
@@ -82,6 +86,7 @@ def early_years_family(hero):
 
 
 def early_years_no_family(hero):
+    """Молодость без семьи."""
     history_early_years = ''
     bad_habits = randint(1, 10)
     if bad_habits <= 6:
@@ -113,6 +118,7 @@ def early_years_no_family(hero):
 
 
 def teen_years_family(hero):
+    """Подростковый возраст в семье."""
     history_teen_years = ''
     scool = randint(1, 10)
     if scool <= 7:
@@ -132,6 +138,7 @@ def teen_years_family(hero):
 
 
 def teen_years_no_family(hero):
+    """Подростковый возраст без семьи."""
     history_teen_years = ''
     scool = randint(1, 10)
     if scool <= 3:
@@ -151,6 +158,7 @@ def teen_years_no_family(hero):
 
 
 def childhood_family(hero):
+    """Детство в семье."""
     history_childhood = ''
     disease = randint(1, 10)
     if disease <= 5:
@@ -170,6 +178,7 @@ def childhood_family(hero):
 
 
 def childhood_no_family(hero):
+    """Детство без семьи."""
     history_childhood = ''
     disease = randint(1, 10)
     if disease <= 7:
@@ -189,6 +198,7 @@ def childhood_no_family(hero):
 
 
 def history_beggar(hero):
+    """История нищего."""
     history = ''
     family = randint(1, 10)
     if family <= 5:
@@ -208,4 +218,11 @@ def history_beggar(hero):
         early_years = early_years_no_family(hero)
         history += early_years
     print(history)
-    print(hero)
+    print(ONE)
+    command = input(COMMAND)
+    while command != '1':
+        print(random_phrase(ERROR_LIST))
+        print(ONE)
+        command = input(COMMAND)
+    fin = changing_properties_menu(hero)
+    return fin

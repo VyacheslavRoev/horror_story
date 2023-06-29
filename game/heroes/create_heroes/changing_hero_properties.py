@@ -1,4 +1,5 @@
 def disease_hero(hero):
+    """Болезни."""
     hero.health -= 10
     hero.force -= 1
     hero.dexterity -= 1
@@ -8,6 +9,7 @@ def disease_hero(hero):
 
 
 def no_disease_hero(hero):
+    """Отсутствие болезней."""
     hero.health += 10
     hero.force += 1
     hero.dexterity += 1
@@ -16,11 +18,13 @@ def no_disease_hero(hero):
 
 
 def good_character_hero(hero):
+    """Хороший характер."""
     hero.magic += 2
     hero.experience += 10
 
 
 def bad_character_hero(hero):
+    """Плохой характер."""
     hero.dexterity += 1
     hero.speed += 1
     hero.magic -= 1
@@ -28,11 +32,13 @@ def bad_character_hero(hero):
 
 
 def scool_hero(hero):
+    """Школа."""
     hero.magic += 2
     hero.experience += 20
 
 
 def no_scool_hero(hero):
+    """Отсутствие школы."""
     hero.health += 10
     hero.force += 1
     hero.dexterity += 1
@@ -43,6 +49,7 @@ def no_scool_hero(hero):
 
 
 def education_hero(hero):
+    """Воспитание."""
     hero.health += 10
     hero.force += 1
     hero.dexterity += 1
@@ -52,10 +59,12 @@ def education_hero(hero):
 
 
 def no_education_hero(hero):
+    """Отсутствие воспитания."""
     hero.experience += 50
 
 
 def bad_habits_hero(hero):
+    """Плохие привычки."""
     hero.health -= 30
     hero.force -= 3
     hero.dexterity -= 3
@@ -65,6 +74,7 @@ def bad_habits_hero(hero):
 
 
 def no_bad_habits_hero(hero):
+    """Отсутствие плохих привычек."""
     hero.health += 30
     hero.force += 3
     hero.dexterity += 3
@@ -74,11 +84,13 @@ def no_bad_habits_hero(hero):
 
 
 def university_hero(hero):
+    """Университет."""
     hero.magic += 2
     hero.experience += 20
 
 
 def no_university_hero(hero):
+    """Отсутствие университета."""
     hero.health += 10
     hero.force += 1
     hero.dexterity += 1
@@ -89,6 +101,7 @@ def no_university_hero(hero):
 
 
 def sport_hero(hero):
+    """Тренировки."""
     hero.health += 20
     hero.force += 2
     hero.dexterity += 2
@@ -99,6 +112,7 @@ def sport_hero(hero):
 
 
 def army_hero(hero):
+    """Служба в армии."""
     hero.health -= 30
     hero.force += 2
     hero.dexterity += 2
