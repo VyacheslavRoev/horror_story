@@ -3,9 +3,9 @@ from battles.magic_combat.preparing_for_battle import get_magic_weapon
 from battles.ranged_combat.preparing_for_battle import get_ranged_weapon
 from enemies.training_enemy import get_training_enemy
 from heroes.inventary_hero import list_inventary
-from random_number_func import random_phrase
 from heroes.training_heroes import traning_hero
-from texts.actions import COMMAND, FINISH, ERROR_LIST
+from random_number_func import random_phrase
+from texts.actions import COMMAND, ERROR_LIST, FINISH
 from texts.attack_messages import WEAPON_FAIL
 from texts.training_messages import (END_TRAINING, GET_ENEMY,
                                      GET_TRAINING_WEAPON, MESSAGE_NEW_TRAINING,
