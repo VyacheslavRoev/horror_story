@@ -120,3 +120,17 @@ def army_hero(hero):
     hero.protection += 2
     hero.magic += 2
     hero.experience += 30
+
+
+def change_health(value, experience, health):
+    """Изменение здоровья героя за счет опыта."""
+    experience -= int(value)
+    health += int(value)
+    return experience, health
+
+
+def change_parametr(value, experience, parametr):
+    """Изменение параметра героя за счет опыта."""
+    experience -= int(value)
+    parametr += int((int(value) / 10))
+    return experience, parametr

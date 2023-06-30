@@ -9,7 +9,7 @@ class CloseBase:
         self.name = name
         self.material = material
         self.impact_force = impact_force
-        self.durability = 5000
+        self.durability = 500
         self.class_weapon = 'Ближний бой'
         self.ammunition = 1
 

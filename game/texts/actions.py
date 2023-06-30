@@ -1,6 +1,7 @@
 
 YES = 'да'
 NO = 'нет'
+FAIL = 'fail'
 ENDURANCE = 'прочность'
 ONE = 'Для продолжения введите 1'
 DEAD = (

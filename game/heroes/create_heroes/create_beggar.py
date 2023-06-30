@@ -1,8 +1,9 @@
 from random import randint
 
+from weapons.close_combat.swords import SimpleSword
 from texts.actions import ONE, COMMAND, ERROR_LIST
 from random_number_func import random_phrase
-from heroes.create_heroes.finish_create import changing_properties_menu
+from heroes.create_heroes.finish_create import you_weapons
 from heroes.create_heroes.changing_hero_properties import (army_hero,
                                                            bad_character_hero,
                                                            bad_habits_hero,
@@ -51,6 +52,7 @@ from texts.create_heroes.beggar import (ARMY_BEGGAR_FAMILY,
                                         NO_SPORT_BEGGAR_NO_FAMILY,
                                         ARMY_BEGGAR_NO_FAMILY,
                                         NO_ARMY_BEGGAR_NO_FAMILY)
+from texts.create_heroes.name_weapons import WEAPON_PRENAME, WEAPON_NAME
 
 
 def early_years_family(hero):
@@ -197,6 +199,20 @@ def childhood_no_family(hero):
     return history_childhood
 
 
+def create_weapons_beggar():
+    """Создание случайного меча для нищего."""
+    weapons_beggar = []
+    sword_beggar = SimpleSword('No name', 'сталь', 1, 2, 0.8)
+    prename = random_phrase(WEAPON_PRENAME)
+    name = random_phrase(WEAPON_NAME)
+    full_name = prename + ' ' + name
+    sword_beggar.name = full_name
+    sword_beggar.impact_force = randint(5, 10)
+    sword_beggar.injection = randint(1, 5)
+    weapons_beggar.append(sword_beggar)
+    return weapons_beggar
+
+
 def history_beggar(hero):
     """История нищего."""
     history = ''
@@ -217,6 +233,7 @@ def history_beggar(hero):
         history += teen_years
         early_years = early_years_no_family(hero)
         history += early_years
+    weapons_beggar = create_weapons_beggar()
     print(history)
     print(ONE)
     command = input(COMMAND)
@@ -224,5 +241,5 @@ def history_beggar(hero):
         print(random_phrase(ERROR_LIST))
         print(ONE)
         command = input(COMMAND)
-    fin = changing_properties_menu(hero)
+    fin = you_weapons(weapons_beggar, hero)
     return fin

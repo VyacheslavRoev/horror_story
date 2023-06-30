@@ -43,7 +43,7 @@ def create_new_hero():
     new_hero.force = randint(0, 10)
     new_hero.dexterity = randint(0, 10)
     new_hero.magic = randint(0, 10)
-    new_hero.speed = randint(0, 10)
+    new_hero.speed = randint(1, 10)
     return new_hero
 
 
