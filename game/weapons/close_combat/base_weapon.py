@@ -1,17 +1,19 @@
 """Базовый класс оружия ближнего боя."""
+from weapons.base_weapon import WeaponBase
 
 
-class CloseBase:
+class CloseBase(WeaponBase):
 
     def __init__(self, name, material, impact_force):
-        """Свойства - название, материал, сила удара,
+        """Название, материал, сила удара,
         прочность, класс оружия, количество зарядов"""
-        self.name = name
-        self.material = material
+        super().__init__(name, material)
         self.impact_force = impact_force
-        self.durability = 500
+        self.shot_power = 0
+        self.magic_power = 0
         self.class_weapon = 'Ближний бой'
         self.ammunition = 1
+        self.long_shot = 1
 
     def sharpen(self):
         """Заточить оружие"""
