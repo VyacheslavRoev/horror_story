@@ -1,15 +1,18 @@
-class BaseMagicCombat:
+from weapons.base_weapon import WeaponBase
+
+
+class BaseMagicCombat(WeaponBase):
     """Базовый класс магического оружия."""
 
     def __init__(self, name, material, magic_power, long_shot):
         """Название, материал, сила удара, дальность поражения
         класс оружия, прочность, количество зарядов"""
-        self.name = name
-        self.material = material
+        super().__init__(name, material)
         self.magic_power = magic_power
         self.long_shot = long_shot
+        self.impact_force = 0
+        self.shot_power = 0
         self.class_weapon = 'Магическое оружие'
-        self.durability = 100
         self.ammunition = 1
 
     def get_weapon_enemy(self):
