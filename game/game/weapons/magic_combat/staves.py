@@ -18,3 +18,11 @@ def create_stave_1(full_name):
     stave_1.magic_power = randint(1, 10)
     stave_1.long_shot = randint(5, 10)
     return stave_1
+
+
+def create_stave_2(full_name):
+    stave_2 = SimpleStave('name', 'осина', 1, 2)
+    stave_2.name = full_name
+    stave_2.magic_power = randint(5, 10)
+    stave_2.long_shot = randint(7, 12)
+    return stave_2

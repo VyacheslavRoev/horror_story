@@ -36,3 +36,11 @@ def create_sword_1(full_name):
     sword_1.impact_force = randint(5, 10)
     sword_1.injection = randint(1, 5)
     return sword_1
+
+
+def create_sword_2(full_name):
+    sword_1 = SimpleSword('name', 'хорошая сталь', 1, 2)
+    sword_1.name = full_name
+    sword_1.impact_force = randint(7, 12)
+    sword_1.injection = randint(3, 7)
+    return sword_1

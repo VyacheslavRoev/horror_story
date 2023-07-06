@@ -43,6 +43,7 @@ class BaseHero:
             full_damage = 0
         self.health -= full_damage
         if self.health <= 0:
+            print(f'Вы получили урон {full_damage}.')
             return self.death()
         return (f'Вы получили урон {full_damage}. '
                 f'Осталось {self.health} ед. здоровья.')
@@ -51,6 +52,7 @@ class BaseHero:
         """Получение урона магией."""
         self.health -= damage
         if self.health <= 0:
+            print(f'Вы получили урон {damage}.')
             return self.death()
         return (f'Вы получили урон {damage}. '
                 f'Осталось {self.health} ед. здоровья.')

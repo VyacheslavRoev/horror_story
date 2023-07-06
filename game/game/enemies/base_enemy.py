@@ -44,6 +44,7 @@ class BaseEnemy:
             full_damage = 0
         self.health -= full_damage
         if self.health <= 0:
+            print(f'{self.name} получил урон {full_damage}.')
             return self.death()
         return (f'{self.name} получил урон {full_damage}. '
                 f'У него осталось {self.health} ед. здоровья.')
@@ -52,6 +53,7 @@ class BaseEnemy:
         """Получение урона магией."""
         self.health -= damage
         if self.health <= 0:
+            print(f'{self.name} получил урон {damage}.')
             return self.death()
         return (f'{self.name} получил урон {damage}. '
                 f'У него осталось {self.health} ед. здоровья.')

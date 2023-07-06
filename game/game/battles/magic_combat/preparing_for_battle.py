@@ -33,6 +33,8 @@ def get_magic_weapon(index, hero, enemy, enemy_weapon,
                                           max_health_enemy)
                 if fin == FINISH:
                     return fin
+                if fin == FAIL:
+                    return fin
             if attack_command == '2':
                 fin = walking_hero_enemy(enemy, max_health_enemy,
                                          enemy_weapon, hero)
