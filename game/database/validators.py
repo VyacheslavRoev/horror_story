@@ -1,8 +1,10 @@
 import sqlite3 as sl
 from game.texts.actions import FAIL
+from game.texts.db_messages import NAME_ERROR
 
 
 def check_name_hero(name):
+    """Проверка, что не дублируется имя."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -13,5 +15,21 @@ def check_name_hero(name):
 
         for result in cur:
             if result[0] == name:
-                print('Такое имя уже есть!')
+                print(NAME_ERROR)
                 return FAIL
+
+
+def check_name_hero_tournament(name):
+    """Проверка на наличие героя в БД."""
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('''
+        SELECT *
+        FROM heroes
+        ''')
+
+        for result in cur:
+            if result[1] == name:
+                return result
+        return FAIL

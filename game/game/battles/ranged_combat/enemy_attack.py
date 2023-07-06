@@ -1,3 +1,4 @@
+from game.texts.actions import FAIL
 from game.texts.attack_messages import DAMAGE, ENEMY_FAIL, ENEMY_MAX_DAMAGE
 
 
@@ -15,9 +16,15 @@ def enemy_attack_ranged_combat(enemy, weapon, hero):
         print(ENEMY_MAX_DAMAGE)
         print(hero.taking_damage(effect))
         if hero.health <= 0:
-            return
-        enemy_attack_ranged_combat(enemy, weapon, hero)
+            fin = FAIL
+            return fin
+        fin = enemy_attack_ranged_combat(enemy, weapon, hero)
+        if fin == FAIL:
+            return fin
     else:
         print(weapon.shot())
         print(DAMAGE)
         print(hero.taking_damage(effect))
+        if hero.health <= 0:
+            fin = FAIL
+            return fin

@@ -4,11 +4,12 @@ from game.weapons.base_weapon import WeaponBase
 
 class CloseBase(WeaponBase):
 
-    def __init__(self, name, material, impact_force):
-        """Название, материал, сила удара,
+    def __init__(self, name, material, impact_force, injection):
+        """Название, материал, сила удара, сила укола
         прочность, класс оружия, количество зарядов"""
         super().__init__(name, material)
         self.impact_force = impact_force
+        self.injection = injection
         self.shot_power = 0
         self.magic_power = 0
         self.class_weapon = 'Ближний бой'

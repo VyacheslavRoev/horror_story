@@ -2,6 +2,7 @@ import sqlite3 as sl
 
 
 def create_tables():
+    """Создание таблиц БД."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -40,6 +41,7 @@ def create_tables():
 
 
 def insert_hero(values):
+    """Добавление героя."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -50,6 +52,7 @@ def insert_hero(values):
 
 
 def insert_weapon(values):
+    """Добавление оружия героя"""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -61,6 +64,7 @@ def insert_weapon(values):
 
 
 def return_hero_id(name):
+    """Поиск ID героя по имени."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -72,3 +76,20 @@ def return_hero_id(name):
         for result in cur:
             if result[1] == name:
                 return result[0]
+
+
+def return_weapons_hero(hero_id):
+    """Поиск оружия героя по его ID"""
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('''
+        SELECT *
+        FROM weapons
+        ''')
+
+        weapons_list = []
+        for result in cur:
+            if result[11] == hero_id:
+                weapons_list.append(result)
+        return weapons_list

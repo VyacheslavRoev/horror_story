@@ -1,13 +1,11 @@
 from .base_weapon import CloseBase
+from random import randint
 
 
 class SimpleSword(CloseBase):
 
     def __init__(self, name, material, impact_force, injection):
-        """Добавлены дальность поражения, сила укола и длина клинка."""
-        super().__init__(name, material, impact_force)
-        self.long_shot = 1
-        self.injection = injection
+        super().__init__(name, material, impact_force, injection)
 
     def slashing_blow(self):
         """Рубящий удар."""
@@ -30,3 +28,11 @@ class SimpleSword(CloseBase):
             f'Колющий удар - {self.injection}, '
             f'Прочности осталось - {self.durability} ед.'
         )
+
+
+def create_sword_1(full_name):
+    sword_1 = SimpleSword('name', 'сталь', 1, 2)
+    sword_1.name = full_name
+    sword_1.impact_force = randint(5, 10)
+    sword_1.injection = randint(1, 5)
+    return sword_1

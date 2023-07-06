@@ -1,7 +1,7 @@
 import re
 
 from game.enemies.random_actions import enemy_random_action
-from game.texts.actions import FINISH, SHAME, STEPS
+from game.texts.actions import FAIL, SHAME, STEPS
 
 
 pattern = r'^[0-9]+$'
@@ -39,4 +39,4 @@ def walking_hero_enemy(enemy, max_health_enemy,
 def run_hero():
     """Убежать с поля боя."""
     print(SHAME)
-    return FINISH
+    return FAIL

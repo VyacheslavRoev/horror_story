@@ -1,4 +1,4 @@
-from game.texts.actions import FINISH
+from game.texts.actions import FAIL
 from game.texts.attack_messages import DAMAGE, ENEMY_FAIL, ENEMY_MAX_DAMAGE
 
 
@@ -13,16 +13,16 @@ def enemy_attack_close_combat(enemy, weapon, hero):
         print(weapon.slashing_blow())
         print(ENEMY_MAX_DAMAGE)
         print(damage)
-        if damage == 'Вы убиты!':
-            fin = FINISH
+        if hero.health <= 0:
+            fin = FAIL
             return fin
         fin = enemy_attack_close_combat(enemy, weapon, hero)
-        if fin == FINISH:
+        if fin == FAIL:
             return fin
     else:
         print(weapon.slashing_blow())
         print(DAMAGE)
         print(hero.taking_damage(effect))
         if hero.health <= 0:
-            fin = FINISH
+            fin = FAIL
             return fin

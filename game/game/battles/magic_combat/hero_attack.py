@@ -45,8 +45,6 @@ def attack_magic_combat(weapon, hero, enemy, weapon_enemy,
         print(DAMAGE)
         print(enemy.magic_taking_damage(effect))
         if enemy.health <= 0:
-            return
-        if enemy.health <= 0:
             fin = FINISH
             return fin
         fin = enemy_random_action(enemy, weapon_enemy, hero,

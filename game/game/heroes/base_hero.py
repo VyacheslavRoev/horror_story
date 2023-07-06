@@ -1,4 +1,5 @@
 from random import randint
+from game.texts.actions import HERO_DEAD
 
 
 class BaseHero:
@@ -23,7 +24,12 @@ class BaseHero:
 
     def death(self):
         """Поражение."""
-        return 'Вы потерпели поражение!'
+        return HERO_DEAD
+    
+    def max_health(self):
+        """Максимальное здоровье."""
+        max_health_hero = self.health
+        return max_health_hero
 
     def taking_damage(self, damage):
         """Получение урона."""

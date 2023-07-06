@@ -1,16 +1,10 @@
-from game.weapons.training_weapons import (training_bow, training_stave,
-                                           traning_sword)
-
-traning_inventary = [traning_sword, training_bow, training_stave]
-
-
-def list_inventary():
+def list_inventary(inventary):
     """Вывод инвентаря."""
-    for i in traning_inventary:
+    for i in inventary:
         print(i)
 
 
-def get_weapon(index):
+def get_weapon(index, inventary):
     """Выбор оружия в инвентаре."""
     index_weapon = int(index) - 1
-    return traning_inventary[index_weapon]
+    return inventary[index_weapon]

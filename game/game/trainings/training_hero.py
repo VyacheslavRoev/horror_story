@@ -5,13 +5,16 @@ from game.enemies.training_enemy import get_training_enemy
 from game.heroes.inventary_hero import list_inventary
 from game.heroes.training_heroes import traning_hero
 from game.random_number_func import random_phrase
-from game.texts.actions import COMMAND, ERROR_LIST, FINISH
+from game.texts.actions import COMMAND, ERROR_LIST, FINISH, FAIL
 from game.texts.attack_messages import WEAPON_FAIL
 from game.texts.training_messages import (END_TRAINING, GET_ENEMY,
                                           GET_TRAINING_WEAPON,
                                           MESSAGE_NEW_TRAINING, NEW_TRAINING)
 from game.weapons.training_weapons import (get_enemy_training_weapons,
-                                           training_bow, traning_sword)
+                                           training_bow, training_stave,
+                                           traning_sword)
+
+traning_inventary = [traning_sword, training_bow, training_stave]
 
 
 def get_training_enemy_and_weapon():
@@ -52,21 +55,21 @@ def training(enemy, weapon, max_health_enemy):
         if new_traning == '1':
             fin = get_close_weapon(
                 new_traning, traning_hero,
-                enemy, weapon, max_health_enemy)
-            if fin == FINISH:
+                enemy, weapon, max_health_enemy, traning_inventary)
+            if fin == FINISH or fin == FAIL:
                 return repeat_traning(enemy, weapon)
         if new_traning == '2':
             fin = get_ranged_weapon(
                 new_traning, traning_hero,
-                enemy, weapon, max_health_enemy)
-            if fin == FINISH:
+                enemy, weapon, max_health_enemy, traning_inventary)
+            if fin == FINISH or fin == FAIL:
                 return repeat_traning(enemy, weapon)
         if new_traning == '3':
             fin = get_magic_weapon(
                 new_traning, traning_hero,
-                enemy, weapon, max_health_enemy
+                enemy, weapon, max_health_enemy, traning_inventary
             )
-            if fin == FINISH:
+            if fin == FINISH or fin == FAIL:
                 return repeat_traning(enemy, weapon)
         if new_traning == '0':
             print(END_TRAINING)
@@ -93,7 +96,7 @@ def traning_menu():
         elif command_traning == '2':
             print(f'{traning_hero}')
         elif command_traning == '3':
-            list_inventary()
+            list_inventary(traning_inventary)
         elif command_traning == '0':
             print(END_TRAINING)
         else:
