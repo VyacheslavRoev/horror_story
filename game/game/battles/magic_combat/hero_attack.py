@@ -38,6 +38,7 @@ def attack_magic_combat(weapon, hero, enemy, weapon_enemy,
         print(YOU_MAX_DAMAGE)
         print(enemy.magic_taking_damage(effect))
         if enemy.health <= 0:
+            print(hero.gaining_experience(enemy.experience))
             fin = FINISH
             return fin
     else:
@@ -45,6 +46,7 @@ def attack_magic_combat(weapon, hero, enemy, weapon_enemy,
         print(DAMAGE)
         print(enemy.magic_taking_damage(effect))
         if enemy.health <= 0:
+            print(hero.gaining_experience(enemy.experience))
             fin = FINISH
             return fin
         fin = enemy_random_action(enemy, weapon_enemy, hero,

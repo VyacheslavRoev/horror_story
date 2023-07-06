@@ -25,11 +25,15 @@ class BaseHero:
     def death(self):
         """Поражение."""
         return HERO_DEAD
-    
+
     def max_health(self):
         """Максимальное здоровье."""
         max_health_hero = self.health
         return max_health_hero
+
+    def gaining_experience(self, exp):
+        self.experience += exp
+        return f'Вы получили {exp} опыта!'
 
     def taking_damage(self, damage):
         """Получение урона."""

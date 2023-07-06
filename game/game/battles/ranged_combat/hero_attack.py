@@ -22,6 +22,7 @@ def attack_ranged_combat(weapon, hero, enemy, weapon_enemy, max_health_enemy):
         print(YOU_MAX_DAMAGE)
         print(enemy.taking_damage(effect))
         if enemy.health <= 0:
+            print(hero.gaining_experience(enemy.experience))
             fin = FINISH
             return fin
     else:
@@ -29,6 +30,7 @@ def attack_ranged_combat(weapon, hero, enemy, weapon_enemy, max_health_enemy):
         print(DAMAGE)
         print(enemy.taking_damage(effect))
         if enemy.health <= 0:
+            print(hero.gaining_experience(enemy.experience))
             fin = FINISH
             return fin
         fin = enemy_random_action(enemy, weapon_enemy, hero,

@@ -21,6 +21,7 @@ def attack_close_combat(attack, weapon, hero, enemy,
             print(YOU_MAX_DAMAGE)
             print(enemy.taking_damage(effect))
             if enemy.health <= 0:
+                print(hero.gaining_experience(enemy.experience))
                 fin = FINISH
                 return fin
         else:
@@ -28,6 +29,7 @@ def attack_close_combat(attack, weapon, hero, enemy,
             print(DAMAGE)
             print(enemy.taking_damage(effect))
             if enemy.health <= 0:
+                print(hero.gaining_experience(enemy.experience))
                 fin = FINISH
                 return fin
             fin = enemy_random_action(enemy, weapon_enemy, hero,
@@ -46,6 +48,7 @@ def attack_close_combat(attack, weapon, hero, enemy,
             print(YOU_MAX_DAMAGE)
             print(enemy.taking_damage(effect))
             if enemy.health <= 0:
+                print(hero.gaining_experience(enemy.experience))
                 fin = FINISH
                 return fin
         else:
@@ -53,6 +56,7 @@ def attack_close_combat(attack, weapon, hero, enemy,
             print(DAMAGE)
             print(enemy.taking_damage(effect))
             if enemy.health <= 0:
+                print(hero.gaining_experience(enemy.experience))
                 fin = FINISH
                 return fin
             fin = enemy_random_action(enemy, weapon_enemy, hero,
