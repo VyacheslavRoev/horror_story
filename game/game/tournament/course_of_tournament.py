@@ -57,7 +57,8 @@ def battle(hero, hero_weapon, enemy, enemy_weapon,
         if new_battle == '0':
             print('BYE!!!')
         else:
-            print(random_phrase(ERROR_LIST))
+            if fin is not None:
+                print(random_phrase(ERROR_LIST))
 
 
 def sharpen_weapon(hero, hero_weapon, max_health_hero):

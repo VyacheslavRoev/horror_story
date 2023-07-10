@@ -18,18 +18,36 @@ class SimpleBow(BaseRangetCombat):
 
 
 def create_bow_1(full_name):
-    bow_1 = SimpleBow('name', 'обычное дерево', 1, 2, 3)
-    bow_1.name = full_name
-    bow_1.shot_power = randint(5, 10)
-    bow_1.ammunition = randint(10, 20)
-    bow_1.long_shot = randint(5, 10)
-    return bow_1
+    bow = SimpleBow('name', 'обычное дерево', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(5, 10)
+    bow.ammunition = randint(10, 20)
+    bow.long_shot = randint(5, 10)
+    return bow
 
 
 def create_bow_2(full_name):
-    bow_2 = SimpleBow('name', 'хорошее дерево', 1, 2, 3)
-    bow_2.name = full_name
-    bow_2.shot_power = randint(7, 12)
-    bow_2.ammunition = randint(15, 20)
-    bow_2.long_shot = randint(7, 12)
-    return bow_2
+    bow = SimpleBow('name', 'хорошее дерево', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(7, 12)
+    bow.ammunition = randint(15, 20)
+    bow.long_shot = randint(7, 12)
+    return bow
+
+
+def create_bow_3(full_name):
+    bow = SimpleBow('name', 'прочное дерево', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(9, 14)
+    bow.ammunition = randint(15, 20)
+    bow.long_shot = randint(9, 12)
+    return bow
+
+
+def create_bow_4(full_name):
+    bow = SimpleBow('name', 'железное дерево', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(10, 15)
+    bow.ammunition = randint(15, 20)
+    bow.long_shot = randint(10, 14)
+    return bow

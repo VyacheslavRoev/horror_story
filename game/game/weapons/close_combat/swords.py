@@ -31,16 +31,32 @@ class SimpleSword(CloseBase):
 
 
 def create_sword_1(full_name):
-    sword_1 = SimpleSword('name', 'сталь', 1, 2)
-    sword_1.name = full_name
-    sword_1.impact_force = randint(5, 10)
-    sword_1.injection = randint(1, 5)
-    return sword_1
+    sword = SimpleSword('name', 'сталь', 1, 2)
+    sword.name = full_name
+    sword.impact_force = randint(5, 10)
+    sword.injection = randint(1, 5)
+    return sword
 
 
 def create_sword_2(full_name):
-    sword_1 = SimpleSword('name', 'хорошая сталь', 1, 2)
-    sword_1.name = full_name
-    sword_1.impact_force = randint(7, 12)
-    sword_1.injection = randint(3, 7)
-    return sword_1
+    sword = SimpleSword('name', 'хорошая сталь', 1, 2)
+    sword.name = full_name
+    sword.impact_force = randint(7, 12)
+    sword.injection = randint(3, 7)
+    return sword
+
+
+def create_sword_3(full_name):
+    sword = SimpleSword('name', 'очень хорошая сталь', 1, 2)
+    sword.name = full_name
+    sword.impact_force = randint(10, 15)
+    sword.injection = randint(5, 10)
+    return sword
+
+
+def create_sword_4(full_name):
+    sword = SimpleSword('name', 'отличная сталь', 1, 2)
+    sword.name = full_name
+    sword.impact_force = randint(12, 17)
+    sword.injection = randint(5, 10)
+    return sword

@@ -1,28 +1,63 @@
 from game.enemies.base_enemy import BaseEnemy
 from random import randint
+from game.random_number_func import random_phrase
+from game.texts.create_enemy.enemy_rus import ENEMY_NAME, ENEMY_PRENAME
+
+
+def create_name_enemy():
+    prename_enemy = random_phrase(ENEMY_PRENAME)
+    name_enemy = random_phrase(ENEMY_NAME)
+    full_name = prename_enemy + ' ' + name_enemy
+    return full_name
 
 
 def create_enemy_lev_1(full_name):
-    enemy_1 = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 30, 1)
-    enemy_1.name = full_name
-    enemy_1.health = randint(200, 300)
-    enemy_1.force = randint(1, 10)
-    enemy_1.dexterity = randint(1, 10)
-    enemy_1.protection = randint(1, 10)
-    enemy_1.speed = randint(1, 10)
-    enemy_1.magic = randint(1, 10)
-    enemy_1.lenght = randint(5, 20)
-    return enemy_1
+    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 30, 1)
+    enemy.name = full_name
+    enemy.health = randint(200, 300)
+    enemy.force = randint(1, 10)
+    enemy.dexterity = randint(1, 10)
+    enemy.protection = randint(1, 10)
+    enemy.speed = randint(1, 10)
+    enemy.magic = randint(1, 10)
+    enemy.lenght = randint(5, 20)
+    return enemy
 
 
 def create_enemy_lev_2(full_name):
-    enemy_2 = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 50, 2)
-    enemy_2.name = full_name
-    enemy_2.health = randint(250, 350)
-    enemy_2.force = randint(5, 15)
-    enemy_2.dexterity = randint(5, 15)
-    enemy_2.protection = randint(5, 15)
-    enemy_2.speed = randint(5, 15)
-    enemy_2.magic = randint(5, 15)
-    enemy_2.lenght = randint(5, 20)
-    return enemy_2
+    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 50, 2)
+    enemy.name = full_name
+    enemy.health = randint(250, 350)
+    enemy.force = randint(5, 15)
+    enemy.dexterity = randint(5, 15)
+    enemy.protection = randint(5, 15)
+    enemy.speed = randint(5, 15)
+    enemy.magic = randint(5, 15)
+    enemy.lenght = randint(5, 20)
+    return enemy
+
+
+def create_enemy_lev_3(full_name):
+    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 70, 3)
+    enemy.name = full_name
+    enemy.health = randint(300, 400)
+    enemy.force = randint(10, 15)
+    enemy.dexterity = randint(10, 15)
+    enemy.protection = randint(10, 15)
+    enemy.speed = randint(10, 15)
+    enemy.magic = randint(10, 15)
+    enemy.lenght = randint(5, 20)
+    return enemy
+
+
+def create_enemy_lev_4(full_name):
+    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 100, 4)
+    enemy.name = full_name
+    enemy.health = randint(350, 400)
+    enemy.force = randint(15, 20)
+    enemy.dexterity = randint(15, 20)
+    enemy.protection = randint(15, 20)
+    enemy.speed = randint(15, 20)
+    enemy.magic = randint(15, 20)
+    enemy.lenght = randint(5, 30)
+    return enemy
