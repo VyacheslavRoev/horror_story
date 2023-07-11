@@ -175,7 +175,7 @@ def tsar_tournament_final(hero, hero_weapon, max_health_hero):
     """Финал царского турнира."""
     hero.health = max_health_hero
     print(FINAL_TOURNAMENT)
-    if hero.nobility == 0:
+    if hero.nobility == 1:
         print(GIFT_NOBILITY)
         tournament_tsar_gift(hero, hero_weapon)
     else:
