@@ -17,7 +17,8 @@ def create_tables():
         speed INTEGER,
         protection INTEGER,
         experience INTEGER,
-        nobility INTEGER
+        nobility INTEGER,
+        adventure INTEGER
         );
 
         CREATE TABLE IF NOT EXISTS weapons(
@@ -47,7 +48,7 @@ def insert_hero(values):
 
         cur.execute('''INSERT INTO heroes(name, health, force,
         dexterity, magic, speed, protection, experience,
-        nobility) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
+        nobility, adventure) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
         con.commit()
 
 
@@ -93,3 +94,57 @@ def return_weapons_hero(hero_id):
             if result[11] == hero_id:
                 weapons_list.append(result)
         return weapons_list
+
+
+def return_id_weapon(name, hero_id):
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('''
+        SELECT id, name, hero_id
+        FROM weapons
+        ''')
+
+        for result in cur:
+            if result[1] == name and result[2] == hero_id:
+                return result[0]
+
+
+def delete_weapon_hero(weapon_id):
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('''
+        DELETE
+        FROM weapons
+        WHERE id=?''', (weapon_id,))
+        con.commit()
+
+
+def update_hero(values):
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('''
+        UPDATE heroes
+        SET
+        health = ?, force = ?,
+        dexterity = ?, magic = ?, speed = ?
+        WHERE id = ?
+        ''', (values))
+
+        con.commit()
+
+
+def update_protection_hero(values):
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('''
+        UPDATE heroes
+        SET
+        protection = ?
+        WHERE id = ?
+        ''', (values))
+
+        con.commit()

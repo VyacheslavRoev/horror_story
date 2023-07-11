@@ -44,8 +44,6 @@ from game.texts.create_heroes.beggar import (ARMY_BEGGAR_FAMILY,
                                              UNIVERSITY_BEGGAR_NO_FAMILY)
 from game.texts.create_heroes.name_weapons import WEAPON_NAME, WEAPON_PRENAME
 from game.weapons.close_combat.swords import SimpleSword
-from game.weapons.ranged_combat.bows import SimpleBow
-from game.weapons.magic_combat.staves import SimpleStave
 
 
 def early_years_family(hero):
@@ -203,23 +201,6 @@ def create_weapons_beggar():
     sword_beggar.impact_force = randint(5, 10)
     sword_beggar.injection = randint(1, 5)
     weapons_beggar.append(sword_beggar)
-    bow_beggar = SimpleBow('No name', 'обычное дерево', 1, 2, 3)
-    prename = random_phrase(WEAPON_PRENAME)
-    name = random_phrase(WEAPON_NAME)
-    full_name = prename + ' ' + name
-    bow_beggar.name = full_name
-    bow_beggar.shot_power = randint(5, 10)
-    bow_beggar.ammunition = randint(10, 20)
-    bow_beggar.long_shot = randint(5, 10)
-    weapons_beggar.append(bow_beggar)
-    stave_beggar = SimpleStave('No name', 'береза', 1, 2)
-    prename = random_phrase(WEAPON_PRENAME)
-    name = random_phrase(WEAPON_NAME)
-    full_name = prename + ' ' + name
-    stave_beggar.name = full_name
-    stave_beggar.magic_power = randint(1, 10)
-    stave_beggar.long_shot = randint(5, 10)
-    weapons_beggar.append(stave_beggar)
     return weapons_beggar
 
 

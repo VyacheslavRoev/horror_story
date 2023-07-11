@@ -102,7 +102,7 @@ def changing_properties(hero, weapons):
         elif command == '7':
             values_hero = (hero.name, hero.health, hero.force, hero.dexterity,
                            hero.magic, hero.speed, hero.protection,
-                           hero.experience, hero.nobility)
+                           hero.experience, hero.nobility, hero.adventure)
             insert_hero(values_hero)
             hero_id = return_hero_id(hero.name)
             for weapon in weapons:
@@ -147,7 +147,7 @@ def changing_properties_menu(weapons, hero):
         if command == '2':
             values_hero = (hero.name, hero.health, hero.force, hero.dexterity,
                            hero.magic, hero.speed, hero.protection,
-                           hero.experience, hero.nobility)
+                           hero.experience, hero.nobility, hero.adventure)
             insert_hero(values_hero)
             hero_id = return_hero_id(hero.name)
             for weapon in weapons:

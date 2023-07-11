@@ -2,6 +2,7 @@ from random import randint
 
 from game.heroes.base_hero import BaseHero
 from game.heroes.create_heroes.create_beggar import history_beggar
+from game.heroes.create_heroes.create_poor_peasant import history_poor_peasant
 from database.validators import check_name_hero
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, FINISH, FAIL
@@ -10,11 +11,11 @@ from game.texts.create_heroes.base import HELLO_CREATE, HISTORY, YOU_NAME
 
 def random_birth(new_hero):
     """Случайный выбор развития истории героя."""
-    random_birth_number = randint(1, 100)
+    random_birth_number = randint(15, 30)
     if random_birth_number <= 15:
         fin = history_beggar(new_hero)
     elif 15 < random_birth_number <= 30:
-        fin = history_beggar(new_hero)
+        fin = history_poor_peasant(new_hero)
     elif 30 < random_birth_number <= 40:
         fin = history_beggar(new_hero)
     elif 40 < random_birth_number <= 55:

@@ -21,6 +21,7 @@ def preparation_hero(hero):
     you_hero.protection = hero[7]
     you_hero.experience = hero[8]
     you_hero.nobility = hero[9]
+    you_hero.adventure = 0
     weapons_list = return_weapons_hero(hero[0])
     for weapon in weapons_list:
         if weapon[7] == 'Ближний бой':

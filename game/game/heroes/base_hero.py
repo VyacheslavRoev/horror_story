@@ -11,7 +11,8 @@ class BaseHero:
             ):
         """Здоровье, сила, ловкость,
         способности к магии, скорость,
-        защита, опыт, принадлежность к дворянству."""
+        защита, опыт, принадлежность к дворянству,
+        приключения."""
         self.name = name
         self.health = health
         self.force = force
@@ -21,6 +22,7 @@ class BaseHero:
         self.protection = 1
         self.experience = 0
         self.nobility = 0
+        self.adventure = 0
 
     def death(self):
         """Поражение."""
