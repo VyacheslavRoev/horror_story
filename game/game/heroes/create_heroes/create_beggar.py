@@ -42,8 +42,8 @@ from game.texts.create_heroes.beggar import (ARMY_BEGGAR_FAMILY,
                                              SPORT_BEGGAR_NO_FAMILY,
                                              UNIVERSITY_BEGGAR_FAMILY,
                                              UNIVERSITY_BEGGAR_NO_FAMILY)
-from game.texts.create_heroes.name_weapons import WEAPON_NAME, WEAPON_PRENAME
-from game.weapons.close_combat.swords import SimpleSword
+from game.weapons.close_combat.swords import create_sword_1
+from game.weapons.create_weapon import create_name_weapon
 
 
 def early_years_family(hero):
@@ -192,16 +192,11 @@ def childhood_no_family(hero):
 
 def create_weapons_beggar():
     """Создание случайного меча для нищего."""
-    weapons_beggar = []
-    sword_beggar = SimpleSword('No name', 'сталь', 1, 2)
-    prename = random_phrase(WEAPON_PRENAME)
-    name = random_phrase(WEAPON_NAME)
-    full_name = prename + ' ' + name
-    sword_beggar.name = full_name
-    sword_beggar.impact_force = randint(5, 10)
-    sword_beggar.injection = randint(1, 5)
-    weapons_beggar.append(sword_beggar)
-    return weapons_beggar
+    weapons = []
+    sword_full_name = create_name_weapon()
+    sword = create_sword_1(sword_full_name)
+    weapons.append(sword)
+    return weapons
 
 
 def history_beggar(hero):

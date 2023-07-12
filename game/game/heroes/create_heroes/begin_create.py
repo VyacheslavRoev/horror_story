@@ -3,18 +3,26 @@ from random import randint
 from database.validators import check_name_hero
 
 from game.heroes.base_hero import BaseHero
-from game.heroes.create_heroes.create_beggar import history_beggar
-from game.heroes.create_heroes.create_poor_peasant import history_poor_peasant
-from game.heroes.create_heroes.create_prosperous_peasant import \
-    history_prosperous_peasant
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, FAIL, FINISH
 from game.texts.create_heroes.base import HELLO_CREATE, HISTORY, YOU_NAME
 
+from .create_beggar import history_beggar
+from .create_poor_peasant import history_poor_peasant
+from .create_prosperous_peasant import history_prosperous_peasant
+from .create_city_resident import history_city_resident
+from .create_merchant import history_merchant
+from .create_ruined_nobles import history_ruined_nobles
+from .create_warrior import history_warrior
+from .create_mayor import history_mayor
+from .create_boyar import history_boyars
+from .create_voevode import history_voevode
+from .create_tsar import history_tsar
+
 
 def random_birth(new_hero):
     """Случайный выбор развития истории героя."""
-    random_birth_number = randint(30, 40)
+    random_birth_number = randint(98, 100)
     if random_birth_number <= 15:
         fin = history_beggar(new_hero)
     elif 15 < random_birth_number <= 30:
@@ -22,21 +30,27 @@ def random_birth(new_hero):
     elif 30 < random_birth_number <= 40:
         fin = history_prosperous_peasant(new_hero)
     elif 40 < random_birth_number <= 55:
-        fin = history_beggar(new_hero)
+        fin = history_city_resident(new_hero)
     elif 55 < random_birth_number <= 65:
-        fin = history_beggar(new_hero)
+        fin = history_merchant(new_hero)
     elif 65 < random_birth_number <= 75:
-        fin = history_beggar(new_hero)
+        new_hero.nobility = 1
+        fin = history_ruined_nobles(new_hero)
     elif 75 < random_birth_number <= 85:
-        fin = history_beggar(new_hero)
+        new_hero.nobility = 1
+        fin = history_warrior(new_hero)
     elif 85 < random_birth_number <= 89:
-        fin = history_beggar(new_hero)
+        new_hero.nobility = 1
+        fin = history_mayor(new_hero)
     elif 89 < random_birth_number <= 93:
-        fin = history_beggar(new_hero)
+        new_hero.nobility = 1
+        fin = history_boyars(new_hero)
     elif 93 < random_birth_number <= 97:
-        fin = history_beggar(new_hero)
+        new_hero.nobility = 1
+        fin = history_voevode(new_hero)
     elif 97 < random_birth_number:
-        fin = history_beggar(new_hero)
+        new_hero.nobility = 1
+        fin = history_tsar(new_hero)
     return fin
 
 

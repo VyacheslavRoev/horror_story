@@ -42,7 +42,7 @@ def tsar_tournament_day_1(hero, hero_weapon):
 def tsar_tournament_day_2(hero, hero_weapon):
     """Царский турнир, день 2"""
     random_enemy = randint(1, 10)
-    if random_enemy <= 10:
+    if random_enemy <= 7:
         enemy, enemy_weapon = preparation_enemy_1()
     else:
         enemy, enemy_weapon = preparation_enemy_2()
@@ -64,7 +64,7 @@ def tsar_tournament_day_2(hero, hero_weapon):
 def tsar_tournament_day_3(hero, hero_weapon):
     """Царский турнир, день 3"""
     random_enemy = randint(1, 10)
-    if random_enemy <= 10:
+    if random_enemy <= 6:
         enemy, enemy_weapon = preparation_enemy_1()
     else:
         enemy, enemy_weapon = preparation_enemy_2()
@@ -86,7 +86,7 @@ def tsar_tournament_day_3(hero, hero_weapon):
 def tsar_tournament_day_4(hero, hero_weapon):
     """Царский турнир, день 4"""
     random_enemy = randint(1, 10)
-    if random_enemy <= 10:
+    if random_enemy <= 5:
         enemy, enemy_weapon = preparation_enemy_1()
     else:
         enemy, enemy_weapon = preparation_enemy_2()
@@ -108,7 +108,7 @@ def tsar_tournament_day_4(hero, hero_weapon):
 def tsar_tournament_day_5(hero, hero_weapon):
     """Царский турнир, день 5"""
     random_enemy = randint(1, 10)
-    if random_enemy <= 10:
+    if random_enemy <= 4:
         enemy, enemy_weapon = preparation_enemy_1()
     else:
         enemy, enemy_weapon = preparation_enemy_2()
@@ -130,7 +130,7 @@ def tsar_tournament_day_5(hero, hero_weapon):
 def tsar_tournament_day_6(hero, hero_weapon):
     """Царский турнир, день 6"""
     random_enemy = randint(1, 10)
-    if random_enemy <= 10:
+    if random_enemy <= 3:
         enemy, enemy_weapon = preparation_enemy_1()
     else:
         enemy, enemy_weapon = preparation_enemy_2()
@@ -152,7 +152,7 @@ def tsar_tournament_day_6(hero, hero_weapon):
 def tsar_tournament_day_7(hero, hero_weapon):
     """Царский турнир, день 7"""
     random_enemy = randint(1, 10)
-    if random_enemy <= 10:
+    if random_enemy <= 2:
         enemy, enemy_weapon = preparation_enemy_1()
     else:
         enemy, enemy_weapon = preparation_enemy_2()

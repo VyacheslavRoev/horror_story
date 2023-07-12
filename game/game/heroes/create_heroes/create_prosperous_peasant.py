@@ -8,7 +8,6 @@ from game.heroes.create_heroes.changing_hero_properties import (
 from game.heroes.create_heroes.finish_create import you_weapons
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, ONE
-from game.texts.create_heroes.name_weapons import WEAPON_NAME, WEAPON_PRENAME
 from game.texts.create_heroes.prosperous_peasant import (
     ARMY_PROSPEROUS_PEASANT_FAMILY, ARMY_PROSPEROUS_PEASANT_NO_FAMILY,
     BAD_CHARACTER_PROSPEROUS_PEASANT_FAMILY,
@@ -36,8 +35,9 @@ from game.texts.create_heroes.prosperous_peasant import (
     SPORT_PROSPEROUS_PEASANT_FAMILY, SPORT_PROSPEROUS_PEASANT_NO_FAMILY,
     UNIVERSITY_PROSPEROUS_PEASANT_FAMILY,
     UNIVERSITY_PROSPEROUS_PEASANT_NO_FAMILY)
-from game.weapons.close_combat.swords import SimpleSword
-from game.weapons.ranged_combat.bows import SimpleBow
+from game.weapons.create_weapon import create_name_weapon
+from game.weapons.close_combat.swords import create_sword_2
+from game.weapons.ranged_combat.bows import create_bow_2
 
 
 def early_years_family(hero):
@@ -187,22 +187,11 @@ def childhood_no_family(hero):
 def create_weapons_prosperous_peasant():
     """Создание случайного оружия зажиточного крестьянина."""
     weapons = []
-    sword = SimpleSword('No name', 'сталь', 1, 2)
-    prename = random_phrase(WEAPON_PRENAME)
-    name = random_phrase(WEAPON_NAME)
-    full_name = prename + ' ' + name
-    sword.name = full_name
-    sword.impact_force = randint(5, 10)
-    sword.injection = randint(1, 5)
+    sword_full_name = create_name_weapon()
+    sword = create_sword_2(sword_full_name)
     weapons.append(sword)
-    bow = SimpleBow('No name', 'простое дерево', 1, 2, 3)
-    prename = random_phrase(WEAPON_PRENAME)
-    name = random_phrase(WEAPON_NAME)
-    full_name = prename + ' ' + name
-    bow.name = full_name
-    bow.shot_power = randint(5, 10)
-    bow.ammunition = randint(10, 20)
-    bow.long_shot = randint(5, 10)
+    bow_full_name = create_name_weapon()
+    bow = create_bow_2(bow_full_name)
     weapons.append(bow)
     return weapons
 
