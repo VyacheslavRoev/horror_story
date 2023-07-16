@@ -1,4 +1,4 @@
-from database.db import return_weapons_hero
+from database.db import return_weapons_hero, return_hero_for_name
 
 from game.heroes.base_hero import BaseHero
 from game.random_number_func import random_phrase
@@ -10,6 +10,8 @@ from game.weapons.magic_combat.staves import SimpleStave
 from game.weapons.ranged_combat.bows import SimpleBow
 
 from .tsar_tournament import tsar_tournament_begin
+from .teutonic_tournament import teutonic_tournament_begin
+
 
 inventary_hero = [None, None, None]
 
@@ -21,7 +23,13 @@ def preparation_hero(hero):
     you_hero.protection = hero[7]
     you_hero.experience = hero[8]
     you_hero.nobility = hero[9]
-    you_hero.adventure = 0
+    you_hero.tsar = hero[10]
+    you_hero.teutonic = hero[11]
+    you_hero.polovistan = hero[12]
+    you_hero.rome = hero[13]
+    you_hero.persia = hero[14]
+    you_hero.barbarians = hero[15]
+    you_hero.koschei = hero[16]
     weapons_list = return_weapons_hero(hero[0])
     for weapon in weapons_list:
         if weapon[7] == 'Ближний бой':
@@ -42,24 +50,34 @@ def preparation_hero(hero):
     return you_hero, inventary_hero
 
 
-def tournament_menu(base_hero):
+def tournament_menu(hero_name):
     """Меню турниров."""
     command = ''
     while command != 0:
+        base_hero = return_hero_for_name(hero_name)
+        hero, hero_weapons = preparation_hero(
+                base_hero
+                )
         print(TOURNAMENT_MENU)
         command = input(COMMAND)
         if command == '1':
-            hero, hero_weapons = preparation_hero(
-                base_hero
+            if hero.tsar == 0:
+                tsar_tournament_begin(
+                    hero, hero_weapons
                 )
-            tsar_tournament_begin(
-                hero, hero_weapons
-            )
-        elif command in ['2', '3', '4', '5', '6', '7']:
+            else:
+                print('Пройдено!')
+        elif command == '2':
+            if hero.teutonic == 0:
+                teutonic_tournament_begin(
+                    hero, hero_weapons
+                )
+            else:
+                print('Пройдено!')
+        elif command in ['3', '4', '5', '6', '7']:
             print('В разработке!')
         elif command == '0':
             print(END)
             return
         else:
             print(random_phrase(ERROR_LIST))
-

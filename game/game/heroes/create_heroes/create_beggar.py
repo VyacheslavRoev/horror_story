@@ -227,5 +227,5 @@ def history_beggar(hero):
         print(random_phrase(ERROR_LIST))
         print(ONE)
         command = input(COMMAND)
-    fin = you_weapons(weapons_beggar, hero)
+    fin = you_weapons(weapons_beggar, hero, history)
     return fin

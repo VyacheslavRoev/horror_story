@@ -238,5 +238,5 @@ def history_tsar(hero):
         print(random_phrase(ERROR_LIST))
         print(ONE)
         command = input(COMMAND)
-    fin = you_weapons(weapons, hero)
+    fin = you_weapons(weapons, hero, history)
     return fin

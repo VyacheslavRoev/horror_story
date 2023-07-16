@@ -23,7 +23,7 @@ def menu():
             if hero == FAIL:
                 print('Персонаж не найден!')
             else:
-                tournament_menu(hero)
+                tournament_menu(hero_name)
         elif menu_command == '4':
             print('В разработке!')
         elif menu_command == '5':

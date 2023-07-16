@@ -1,5 +1,5 @@
 import sqlite3 as sl
-from game.texts.actions import FAIL
+from game.texts.actions import FAIL, FINISH
 from game.texts.db_messages import NAME_ERROR
 
 
@@ -30,6 +30,6 @@ def check_name_hero_tournament(name):
         ''')
 
         for result in cur:
-            if result[1] == name:
-                return result
-        return FAIL
+            if result[1] != name:
+                return FAIL
+            return FINISH

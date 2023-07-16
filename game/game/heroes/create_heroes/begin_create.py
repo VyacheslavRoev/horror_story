@@ -22,7 +22,7 @@ from .create_tsar import history_tsar
 
 def random_birth(new_hero):
     """Случайный выбор развития истории героя."""
-    random_birth_number = randint(98, 100)
+    random_birth_number = randint(1, 100)
     if random_birth_number <= 15:
         fin = history_beggar(new_hero)
     elif 15 < random_birth_number <= 30:

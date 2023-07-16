@@ -1,4 +1,5 @@
 import sqlite3 as sl
+from game.texts.actions import FAIL
 
 
 def create_tables():
@@ -18,7 +19,14 @@ def create_tables():
         protection INTEGER,
         experience INTEGER,
         nobility INTEGER,
-        adventure INTEGER
+        tsar INTEGER,
+        teutonic INTEGER,
+        polovistan INTEGER,
+        rome INTEGER,
+        persia INTEGER,
+        barbarians INTEGER,
+        koschei INTEGER,
+        history TEXT
         );
 
         CREATE TABLE IF NOT EXISTS weapons(
@@ -48,7 +56,9 @@ def insert_hero(values):
 
         cur.execute('''INSERT INTO heroes(name, health, force,
         dexterity, magic, speed, protection, experience,
-        nobility, adventure) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
+        nobility, tsar, teutonic, polovistan, rome, persia,
+        barbarians, koschei, history) VALUES(?, ?, ?, ?, ?, ?,
+        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
         con.commit()
 
 
@@ -129,22 +139,25 @@ def update_hero(values):
         UPDATE heroes
         SET
         health = ?, force = ?,
-        dexterity = ?, magic = ?, speed = ?
+        dexterity = ?, magic = ?, speed = ?,
+        protection = ?, experience = ?, tsar = ?
         WHERE id = ?
         ''', (values))
 
         con.commit()
 
 
-def update_protection_hero(values):
+def return_hero_for_name(name):
+    """Возврат героя по имени."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
         cur.execute('''
-        UPDATE heroes
-        SET
-        protection = ?
-        WHERE id = ?
-        ''', (values))
+        SELECT *
+        FROM heroes
+        ''')
 
-        con.commit()
+        for result in cur:
+            if result[1] == name:
+                return result
+            return FAIL

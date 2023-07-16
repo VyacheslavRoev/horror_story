@@ -6,7 +6,8 @@ from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, FAIL, FINISH
 from game.texts.attack_messages import WEAPON_FAIL
 from game.texts.tournament_messages import (BREAK_BATTLE, FINICH_PROPERTY,
-                                            GOOD_REST, NOT_CLOSE_COMBAT,
+                                            GOOD_REST, NEW_TOURNAMENT,
+                                            NOT_CLOSE_COMBAT,
                                             NOT_RANGED_COMBAT, SHORT_REST,
                                             SLEEP, TOURNAMENT_WEAPON)
 
@@ -18,10 +19,10 @@ def battle(hero, hero_weapon, enemy, enemy_weapon,
     while new_battle != '0':
         if enemy_weapon.durability <= 0:
             print(WEAPON_FAIL)
-            return FINISH
+            return FAIL
         if enemy_weapon.ammunition <= 0:
             print(enemy_weapon.not_ammunition())
-            return FINISH
+            return FAIL
         print(f"""{TOURNAMENT_WEAPON}
         1 - {hero_weapon[0]}
         2 - {hero_weapon[1]}
@@ -29,6 +30,7 @@ def battle(hero, hero_weapon, enemy, enemy_weapon,
 
         0 - Выход""")
         new_battle = input(COMMAND)
+        fin = ''
         if new_battle == '1':
             fin = get_close_weapon(
                 new_battle, hero,
@@ -118,6 +120,24 @@ def break_battle(hero, hero_weapon, max_health_hero):
         elif command == '7':
             print(FINICH_PROPERTY)
             sleep(hero, hero_weapon, max_health_hero)
+        else:
+            print(random_phrase(ERROR_LIST))
+    return hero, hero_weapon
+
+
+def new_tournament_break_battle(hero, hero_weapon):
+    """Начало турнира.
+    Выбор параметров для изменения."""
+    command = ''
+    while command != '7':
+        print(f'{hero}')
+        print(f'Опыта осталось - {hero.experience}')
+        print(NEW_TOURNAMENT)
+        command = input(COMMAND)
+        if command in ['1', '2', '3', '4', '5', '6']:
+            changing_number(command, hero)
+        elif command == '7':
+            print(FINICH_PROPERTY)
         else:
             print(random_phrase(ERROR_LIST))
     return hero, hero_weapon

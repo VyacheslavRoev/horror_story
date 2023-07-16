@@ -90,7 +90,7 @@ def changing_number(command, hero):
         print(hero)
 
 
-def changing_properties(hero, weapons):
+def changing_properties(hero, weapons, history):
     """Выбор параметров для изменения."""
     command = ''
     while command != '7':
@@ -102,7 +102,9 @@ def changing_properties(hero, weapons):
         elif command == '7':
             values_hero = (hero.name, hero.health, hero.force, hero.dexterity,
                            hero.magic, hero.speed, hero.protection,
-                           hero.experience, hero.nobility, hero.adventure)
+                           hero.experience, hero.nobility, hero.tsar,
+                           hero.teutonic, hero.polovistan, hero.rome,
+                           hero.persia, hero.barbarians, hero.koschei, history)
             insert_hero(values_hero)
             hero_id = return_hero_id(hero.name)
             for weapon in weapons:
@@ -121,7 +123,7 @@ def changing_properties(hero, weapons):
     return fin
 
 
-def changing_properties_menu(weapons, hero):
+def changing_properties_menu(weapons, hero, history):
     """Первое подведение итогов создания героя.
     Возможность завершить процесс."""
     if hero.health < 100:
@@ -142,12 +144,14 @@ def changing_properties_menu(weapons, hero):
         print(EXPERIENCE_MENU)
         command = input(COMMAND)
         if command == '1':
-            fin = changing_properties(hero, weapons)
+            fin = changing_properties(hero, weapons, history)
             return fin
         if command == '2':
             values_hero = (hero.name, hero.health, hero.force, hero.dexterity,
                            hero.magic, hero.speed, hero.protection,
-                           hero.experience, hero.nobility, hero.adventure)
+                           hero.experience, hero.nobility, hero.tsar,
+                           hero.teutonic, hero.polovistan, hero.rome,
+                           hero.persia, hero.barbarians, hero.koschei, history)
             insert_hero(values_hero)
             hero_id = return_hero_id(hero.name)
             for weapon in weapons:
@@ -166,7 +170,7 @@ def changing_properties_menu(weapons, hero):
     return fin
 
 
-def you_weapons(weapons, hero):
+def you_weapons(weapons, hero, history):
     print(YOU_WEAPONS)
     for i in weapons:
         print(i)
@@ -176,5 +180,5 @@ def you_weapons(weapons, hero):
         print(random_phrase(ERROR_LIST))
         print(ONE)
         command = input(COMMAND)
-    fin = changing_properties_menu(weapons, hero)
+    fin = changing_properties_menu(weapons, hero, history)
     return fin
