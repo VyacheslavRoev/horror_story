@@ -11,7 +11,7 @@ def enemy_attack_ranged_combat(enemy, weapon, hero):
         print(weapon.shot())
         print(f'{enemy.name} {ENEMY_FAIL}')
     elif effect == ((enemy.force + enemy.dexterity +
-                     weapon.shot_power - enemy.lenght) * 10):
+                     weapon.shot_power - enemy.lenght) * 8):
         print(weapon.shot())
         print(ENEMY_MAX_DAMAGE)
         print(hero.taking_damage(effect))

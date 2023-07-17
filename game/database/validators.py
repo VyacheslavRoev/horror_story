@@ -30,6 +30,6 @@ def check_name_hero_tournament(name):
         ''')
 
         for result in cur:
-            if result[1] != name:
-                return FAIL
-            return FINISH
+            if result[1] == name:
+                return FINISH
+        return FAIL

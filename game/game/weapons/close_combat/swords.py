@@ -33,30 +33,30 @@ class SimpleSword(CloseBase):
 def create_sword_1(full_name):
     sword = SimpleSword('name', 'сталь', 1, 2)
     sword.name = full_name
-    sword.impact_force = randint(5, 10)
-    sword.injection = randint(1, 5)
+    sword.impact_force = randint(10, 15)
+    sword.injection = randint(5, 10)
     return sword
 
 
 def create_sword_2(full_name):
     sword = SimpleSword('name', 'хорошая сталь', 1, 2)
     sword.name = full_name
-    sword.impact_force = randint(7, 12)
-    sword.injection = randint(3, 7)
+    sword.impact_force = randint(12, 17)
+    sword.injection = randint(5, 10)
     return sword
 
 
 def create_sword_3(full_name):
     sword = SimpleSword('name', 'очень хорошая сталь', 1, 2)
     sword.name = full_name
-    sword.impact_force = randint(10, 15)
-    sword.injection = randint(5, 10)
+    sword.impact_force = randint(15, 20)
+    sword.injection = randint(7, 12)
     return sword
 
 
 def create_sword_4(full_name):
     sword = SimpleSword('name', 'отличная сталь', 1, 2)
     sword.name = full_name
-    sword.impact_force = randint(12, 17)
-    sword.injection = randint(5, 10)
+    sword.impact_force = randint(17, 23)
+    sword.injection = randint(10, 15)
     return sword

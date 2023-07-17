@@ -60,7 +60,7 @@ class BaseEnemy:
 
     def close_dealing_damage(self, damage):
         """Нанесение урона оружием ближнего боя."""
-        effect = (self.force + damage) * randint(0, 10)
+        effect = (self.force + damage) * randint(0, 8)
         return effect
 
     def ranged_dealing_damage(self, damage, long_shot, lenght):

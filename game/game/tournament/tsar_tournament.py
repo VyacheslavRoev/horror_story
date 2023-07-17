@@ -1,5 +1,7 @@
 from random import randint
 
+from database.db import return_hero_id, update_hero
+
 from game.enemies.base_enemy import BaseEnemy
 from game.texts.actions import COMMAND, FINISH
 from game.texts.tournament_messages import (DAY_2, DAY_3, DAY_4, DAY_5, DAY_6,
@@ -178,12 +180,12 @@ def tsar_tournament_final(hero, hero_weapon, max_health_hero):
     print(FINAL_TOURNAMENT)
     if hero.nobility == 1:
         print(GIFT_NOBILITY)
-        tournament_tsar_gift(hero, hero_weapon)
+        tournament_tsar_gift(hero, hero_weapon, max_health_hero)
     else:
         random_phrase = randint(1, 10)
-        if random_phrase <= 5:
+        if random_phrase <= 0:
             print(GIFT_NOT_NOBILITY)
-            tournament_tsar_gift(hero, hero_weapon)
+            tournament_tsar_gift(hero, hero_weapon, max_health_hero)
         else:
             print(NO_GIFT_NOT_NOBILITY)
             command = input(COMMAND)
@@ -192,7 +194,7 @@ def tsar_tournament_final(hero, hero_weapon, max_health_hero):
             elif command == '2':
                 enemy = BaseEnemy('Воевода', 300, 15, 15, 10, 5, 0, 1, 150, 5)
                 enemy_weapon = SimpleSword('Ясный Сокол',
-                                           'воронёная сталь', 15, 15)
+                                           'воронёная сталь', 20, 15)
                 max_health_enemy = enemy.max_health()
                 print(
                     f'''
@@ -206,10 +208,18 @@ def tsar_tournament_final(hero, hero_weapon, max_health_hero):
                     )
                 if fin == FINISH:
                     print(FIN_TOURN)
-                    tournament_tsar_gift(hero, hero_weapon)
+                    tournament_tsar_gift(hero, hero_weapon, max_health_hero)
                     return
                 else:
                     print(FAIL_TOURN_2)
+                    hero_id = return_hero_id(hero.name)
+                    hero.tsar = 1
+                    values = (max_health_hero, hero.force,
+                              hero.dexterity, hero.magic, hero.speed,
+                              hero.protection, hero.experience, hero.tsar,
+                              hero.teutonic, hero.polovistan, hero.rome,
+                              hero.persia, hero.barbarians, hero_id)
+                    update_hero(values)
                     return
 
 

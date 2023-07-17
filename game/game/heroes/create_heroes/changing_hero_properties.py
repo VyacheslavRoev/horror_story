@@ -1,11 +1,11 @@
 def disease_hero(hero):
     """Болезни."""
-    hero.health -= 10
-    hero.force -= 1
-    hero.dexterity -= 1
-    hero.speed -= 1
-    hero.protection -= 1
-    hero.experience += 10
+    hero.health -= 20
+    hero.force -= 2
+    hero.dexterity -= 2
+    hero.speed -= 2
+    hero.protection -= 2
+    hero.experience += 20
 
 
 def no_disease_hero(hero):
@@ -15,12 +15,14 @@ def no_disease_hero(hero):
     hero.dexterity += 1
     hero.speed += 1
     hero.protection += 1
+    hero.experience += 10
 
 
 def good_character_hero(hero):
     """Хороший характер."""
+    hero.health += 20
     hero.magic += 2
-    hero.experience += 10
+    hero.experience += 20
 
 
 def bad_character_hero(hero):
@@ -33,8 +35,13 @@ def bad_character_hero(hero):
 
 def scool_hero(hero):
     """Школа."""
+    hero.health += 20
+    hero.force += 1
+    hero.dexterity += 1
+    hero.speed += 1
+    hero.protection += 1
     hero.magic += 2
-    hero.experience += 20
+    hero.experience += 10
 
 
 def no_scool_hero(hero):
@@ -56,6 +63,7 @@ def education_hero(hero):
     hero.speed += 1
     hero.protection += 1
     hero.magic += 1
+    hero.experience += 20
 
 
 def no_education_hero(hero):
@@ -85,8 +93,13 @@ def no_bad_habits_hero(hero):
 
 def university_hero(hero):
     """Университет."""
+    hero.health += 20
+    hero.force += 1
+    hero.dexterity += 1
+    hero.speed += 1
+    hero.protection += 1
     hero.magic += 2
-    hero.experience += 20
+    hero.experience += 10
 
 
 def no_university_hero(hero):
@@ -97,17 +110,17 @@ def no_university_hero(hero):
     hero.speed += 1
     hero.protection += 1
     hero.magic -= 2
-    hero.experience += 20
+    hero.experience += 30
 
 
 def sport_hero(hero):
     """Тренировки."""
     hero.health += 20
-    hero.force += 2
-    hero.dexterity += 2
-    hero.speed += 2
-    hero.protection += 2
-    hero.magic += 2
+    hero.force += 3
+    hero.dexterity += 3
+    hero.speed += 3
+    hero.protection += 3
+    hero.magic += 3
     hero.experience += 20
 
 

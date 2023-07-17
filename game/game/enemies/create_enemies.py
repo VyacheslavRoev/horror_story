@@ -20,7 +20,7 @@ def create_enemy_lev_1(full_name):
     enemy.protection = randint(1, 10)
     enemy.speed = randint(1, 10)
     enemy.magic = randint(1, 10)
-    enemy.lenght = randint(5, 20)
+    enemy.lenght = randint(3, 10)
     return enemy
 
 
@@ -33,7 +33,7 @@ def create_enemy_lev_2(full_name):
     enemy.protection = randint(5, 15)
     enemy.speed = randint(5, 15)
     enemy.magic = randint(5, 15)
-    enemy.lenght = randint(5, 20)
+    enemy.lenght = randint(5, 15)
     return enemy
 
 

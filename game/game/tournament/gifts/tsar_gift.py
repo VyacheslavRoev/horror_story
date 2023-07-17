@@ -9,13 +9,13 @@ from game.weapons.close_combat.swords import SimpleSword
 from game.weapons.magic_combat.staves import SimpleStave
 from game.weapons.ranged_combat.bows import SimpleBow
 
-tsar_sword = SimpleSword('Царский меч', 'отличная сталь с позолотой', 20, 10)
-tsar_bow = SimpleBow('Царский лук', 'крепкий дуб с позолотой', 18, 20, 15)
+tsar_sword = SimpleSword('Царский меч', 'отличная сталь с позолотой', 30, 12)
+tsar_bow = SimpleBow('Царский лук', 'крепкий дуб с позолотой', 20, 20, 15)
 tsar_stave = SimpleStave('Царский магический посох',
                          'крепкий дуб с позолотой', 15, 15)
 
 
-def tournament_tsar_gift(hero, weapons):
+def tournament_tsar_gift(hero, weapons, max_health_hero):
     """Подарок царя."""
     hero_id = return_hero_id(hero.name)
     hero.tsar = 1
@@ -86,7 +86,7 @@ def tournament_tsar_gift(hero, weapons):
         gift = input(COMMAND)
         if gift == '1':
             print(THANKS)
-            hero.health += 50
+            max_health_hero += 50
             hero.force += 5
             hero.dexterity += 5
             hero.magic += 5
@@ -102,8 +102,9 @@ def tournament_tsar_gift(hero, weapons):
             hero.protection += 10
         else:
             print(NO_THANKS)
-    values = (hero.health, hero.force,
+    values = (max_health_hero, hero.force,
               hero.dexterity, hero.magic, hero.speed,
-              hero.protection, hero.experience,
-              hero.tsar, hero_id)
+              hero.protection, hero.experience, hero.tsar,
+              hero.teutonic, hero.polovistan, hero.rome,
+              hero.persia, hero.barbarians, hero_id)
     update_hero(values)

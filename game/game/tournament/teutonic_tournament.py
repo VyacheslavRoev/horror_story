@@ -196,22 +196,22 @@ def teutonic_tournament_final(hero, hero_weapon, max_health_hero):
     print(FINAL_TOURNAMENT)
     if hero.nobility == 1:
         print(GIFT_NOBILITY)
-        teutonic_tournament_gift(hero, hero_weapon)
+        teutonic_tournament_gift(hero, hero_weapon, max_health_hero)
     else:
         random_phrase = randint(1, 10)
         if random_phrase <= 5:
             print(GIFT_NOT_NOBILITY)
-            teutonic_tournament_gift(hero, hero_weapon)
+            teutonic_tournament_gift(hero, hero_weapon, max_health_hero)
         else:
             print(NO_GIFT_NOT_NOBILITY)
             command = input(COMMAND)
             if command == '1':
                 print(FAIL_TOURN)
             elif command == '2':
-                enemy = BaseEnemy('Маршал ордена', 300, 15, 15,
-                                  10, 5, 0, 1, 150, 5)
+                enemy = BaseEnemy('Маршал ордена', 300, 20, 20,
+                                  15, 10, 0, 1, 150, 5)
                 enemy_weapon = SimpleSword('Огненный глаз',
-                                           'закалённая сталь', 15, 15)
+                                           'закалённая сталь', 25, 15)
                 max_health_enemy = enemy.max_health()
                 print(
                     f'''
@@ -225,7 +225,8 @@ def teutonic_tournament_final(hero, hero_weapon, max_health_hero):
                     )
                 if fin == FINISH:
                     print(FIN_TOURN)
-                    teutonic_tournament_gift(hero, hero_weapon)
+                    teutonic_tournament_gift(hero, hero_weapon,
+                                             max_health_hero)
                     return
                 else:
                     print(FAIL_TOURN_2)

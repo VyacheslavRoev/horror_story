@@ -126,12 +126,12 @@ def changing_properties(hero, weapons, history):
 def changing_properties_menu(weapons, hero, history):
     """Первое подведение итогов создания героя.
     Возможность завершить процесс."""
-    if hero.health < 100:
-        hero.health = 100
-    if hero.force < 0:
-        hero.force = 0
-    if hero.dexterity < 0:
-        hero.dexterity = 0
+    if hero.health < 200:
+        hero.health = 200
+    if hero.force < 5:
+        hero.force = 5
+    if hero.dexterity < 5:
+        hero.dexterity = 5
     if hero.magic < 0:
         hero.magic = 0
     if hero.speed < 1:

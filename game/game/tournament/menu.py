@@ -1,17 +1,17 @@
-from database.db import return_weapons_hero, return_hero_for_name
+from database.db import return_hero_for_name, return_weapons_hero
 
 from game.heroes.base_hero import BaseHero
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST
 from game.texts.menu_messages import END
-from game.texts.tournament_messages import TOURNAMENT_MENU
+from game.texts.tournament_messages import (COMPLETED, NOT_AVAILABLE,
+                                            TOURNAMENT_MENU)
 from game.weapons.close_combat.swords import SimpleSword
 from game.weapons.magic_combat.staves import SimpleStave
 from game.weapons.ranged_combat.bows import SimpleBow
 
-from .tsar_tournament import tsar_tournament_begin
 from .teutonic_tournament import teutonic_tournament_begin
-
+from .tsar_tournament import tsar_tournament_begin
 
 inventary_hero = [None, None, None]
 
@@ -66,14 +66,17 @@ def tournament_menu(hero_name):
                     hero, hero_weapons
                 )
             else:
-                print('Пройдено!')
+                print(COMPLETED)
         elif command == '2':
             if hero.teutonic == 0:
-                teutonic_tournament_begin(
-                    hero, hero_weapons
-                )
+                if hero.tsar == 1:
+                    teutonic_tournament_begin(
+                        hero, hero_weapons
+                    )
+                else:
+                    print(NOT_AVAILABLE)
             else:
-                print('Пройдено!')
+                print(COMPLETED)
         elif command in ['3', '4', '5', '6', '7']:
             print('В разработке!')
         elif command == '0':

@@ -97,16 +97,18 @@ def return_weapons_hero(hero_id):
         cur.execute('''
         SELECT *
         FROM weapons
-        ''')
+        JOIN heroes
+        ON weapons.hero_id=?
+        ''', (hero_id,))
 
         weapons_list = []
         for result in cur:
-            if result[11] == hero_id:
-                weapons_list.append(result)
+            weapons_list.append(result)
         return weapons_list
 
 
 def return_id_weapon(name, hero_id):
+    """Возврат ID оружия по ID героя."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -121,6 +123,7 @@ def return_id_weapon(name, hero_id):
 
 
 def delete_weapon_hero(weapon_id):
+    """Удаление оружия по го ID."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -132,6 +135,7 @@ def delete_weapon_hero(weapon_id):
 
 
 def update_hero(values):
+    """Изменение параметров героя."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
 
@@ -140,7 +144,9 @@ def update_hero(values):
         SET
         health = ?, force = ?,
         dexterity = ?, magic = ?, speed = ?,
-        protection = ?, experience = ?, tsar = ?
+        protection = ?, experience = ?, tsar = ?,
+        teutonic = ?, polovistan = ?, rome = ?,
+        persia = ?, barbarians = ?
         WHERE id = ?
         ''', (values))
 
@@ -160,4 +166,4 @@ def return_hero_for_name(name):
         for result in cur:
             if result[1] == name:
                 return result
-            return FAIL
+        return FAIL
