@@ -8,6 +8,7 @@ from game.heroes.create_heroes.changing_hero_properties import (
 from game.heroes.create_heroes.finish_create import you_weapons
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, ONE
+from game.texts.create_heroes.base import BEGIN_HERO_TOURNAMENT
 from game.texts.create_heroes.voevode import (ARMY_VOEVODE_FAMILY,
                                               ARMY_VOEVODE_NO_FAMILY,
                                               BAD_CHARACTER_VOEVODE_FAMILY,
@@ -229,6 +230,7 @@ def history_voevode(hero):
         history += early_years
     hero.protection += 7
     weapons = create_weapons_voevode()
+    history += BEGIN_HERO_TOURNAMENT
     print(history)
     print(ONE)
     command = input(COMMAND)

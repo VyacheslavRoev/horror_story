@@ -192,7 +192,7 @@ def tsar_tournament_final(hero, hero_weapon, max_health_hero):
             if command == '1':
                 print(FAIL_TOURN)
             elif command == '2':
-                enemy = BaseEnemy('Воевода', 300, 15, 15, 10, 5, 0, 1, 150, 5)
+                enemy = BaseEnemy('Воевода', 350, 15, 15, 10, 5, 0, 1, 70, 5)
                 enemy_weapon = SimpleSword('Ясный Сокол',
                                            'воронёная сталь', 20, 15)
                 max_health_enemy = enemy.max_health()

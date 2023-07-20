@@ -8,6 +8,7 @@ from game.heroes.create_heroes.changing_hero_properties import (
 from game.heroes.create_heroes.finish_create import you_weapons
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, ONE
+from game.texts.create_heroes.base import BEGIN_HERO_TOURNAMENT
 from game.texts.create_heroes.tsar import (ARMY_TSAR_FAMILY,
                                            ARMY_TSAR_NO_FAMILY,
                                            BAD_CHARACTER_TSAR_FAMILY,
@@ -231,6 +232,7 @@ def history_tsar(hero):
     hero.speed += 5
     hero.protection += 10
     weapons = create_weapons_tsar()
+    history += BEGIN_HERO_TOURNAMENT
     print(history)
     print(ONE)
     command = input(COMMAND)

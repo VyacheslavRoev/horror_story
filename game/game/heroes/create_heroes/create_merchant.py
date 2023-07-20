@@ -8,6 +8,7 @@ from game.heroes.create_heroes.changing_hero_properties import (
 from game.heroes.create_heroes.finish_create import you_weapons
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST, ONE
+from game.texts.create_heroes.base import BEGIN_HERO_TOURNAMENT
 from game.texts.create_heroes.merchant import (
     ARMY_MERCHANT_FAMILY, ARMY_MERCHANT_NO_FAMILY,
     BAD_CHARACTER_MERCHANT_FAMILY, BAD_CHARACTER_MERCHANT_NO_FAMILY,
@@ -213,6 +214,7 @@ def history_merchant(hero):
         history += early_years
     hero.protection += 5
     weapons = create_weapons_merchant()
+    history += BEGIN_HERO_TOURNAMENT
     print(history)
     print(ONE)
     command = input(COMMAND)

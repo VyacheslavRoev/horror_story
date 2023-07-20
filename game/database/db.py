@@ -53,12 +53,15 @@ def insert_hero(values):
     """Добавление героя."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
-
-        cur.execute('''INSERT INTO heroes(name, health, force,
-        dexterity, magic, speed, protection, experience,
-        nobility, tsar, teutonic, polovistan, rome, persia,
-        barbarians, koschei, history) VALUES(?, ?, ?, ?, ?, ?,
-        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
+        try:
+            cur.execute('''INSERT INTO heroes(name, health, force,
+            dexterity, magic, speed, protection, experience,
+            nobility, tsar, teutonic, polovistan, rome, persia,
+            barbarians, koschei, history) VALUES(?, ?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
+        except Exception:
+            print('Error: Герой не записан в базу данных!')
+            con.rollback()
         con.commit()
 
 
@@ -66,11 +69,14 @@ def insert_weapon(values):
     """Добавление оружия героя"""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
-
-        cur.execute('''INSERT INTO weapons(name, material, impact_force,
-        injection, shot_power, magic_power, class_weapon,
-        ammunition, long_shot, durability, hero_id)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
+        try:
+            cur.execute('''INSERT INTO weapons(name, material, impact_force,
+            injection, shot_power, magic_power, class_weapon,
+            ammunition, long_shot, durability, hero_id)
+            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', values)
+        except Exception:
+            print('Error: Оружие не записано в базу данных!')
+            con.rollback()
         con.commit()
 
 
@@ -138,18 +144,20 @@ def update_hero(values):
     """Изменение параметров героя."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
-
-        cur.execute('''
-        UPDATE heroes
-        SET
-        health = ?, force = ?,
-        dexterity = ?, magic = ?, speed = ?,
-        protection = ?, experience = ?, tsar = ?,
-        teutonic = ?, polovistan = ?, rome = ?,
-        persia = ?, barbarians = ?
-        WHERE id = ?
-        ''', (values))
-
+        try:
+            cur.execute('''
+            UPDATE heroes
+            SET
+            health = ?, force = ?,
+            dexterity = ?, magic = ?, speed = ?,
+            protection = ?, experience = ?, tsar = ?,
+            teutonic = ?, polovistan = ?, rome = ?,
+            persia = ?, barbarians = ?
+            WHERE id = ?
+            ''', (values))
+        except Exception:
+            print('Error: Параметры героя не изменены!')
+            con.rollback()
         con.commit()
 
 
