@@ -50,3 +50,19 @@ def create_stave_5(full_name):
     stave.magic_power = randint(15, 17)
     stave.long_shot = randint(10, 15)
     return stave
+
+
+def create_stave_6(full_name):
+    stave = SimpleStave('name', 'кость с изумрудным навершием', 1, 2)
+    stave.name = full_name
+    stave.magic_power = randint(20, 23)
+    stave.long_shot = randint(10, 15)
+    return stave
+
+
+def create_stave_7(full_name):
+    stave = SimpleStave('name', 'кость с рубиновым навершием', 1, 2)
+    stave.name = full_name
+    stave.magic_power = randint(20, 25)
+    stave.long_shot = randint(10, 15)
+    return stave

@@ -152,7 +152,7 @@ def update_hero(values):
             dexterity = ?, magic = ?, speed = ?,
             protection = ?, experience = ?, tsar = ?,
             teutonic = ?, polovistan = ?, rome = ?,
-            persia = ?, barbarians = ?
+            persia = ?, barbarians = ?, koschei = ?
             WHERE id = ?
             ''', (values))
         except Exception:

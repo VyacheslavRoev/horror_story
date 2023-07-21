@@ -60,3 +60,21 @@ def create_bow_5(full_name):
     bow.ammunition = randint(15, 20)
     bow.long_shot = randint(15, 20)
     return bow
+
+
+def create_bow_6(full_name):
+    bow = SimpleBow('name', 'составное дерево', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(20, 25)
+    bow.ammunition = randint(15, 20)
+    bow.long_shot = randint(15, 20)
+    return bow
+
+
+def create_bow_7(full_name):
+    bow = SimpleBow('name', 'составная кость', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(25, 30)
+    bow.ammunition = randint(15, 20)
+    bow.long_shot = randint(15, 20)
+    return bow

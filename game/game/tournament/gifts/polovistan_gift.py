@@ -106,5 +106,5 @@ def polovistan_tournament_gift(hero, weapons, max_health_hero):
               hero.dexterity, hero.magic, hero.speed,
               hero.protection, hero.experience, hero.tsar,
               hero.teutonic, hero.polovistan, hero.rome,
-              hero.persia, hero.barbarians, hero_id)
+              hero.persia, hero.barbarians, hero.koschei, hero_id)
     update_hero(values)

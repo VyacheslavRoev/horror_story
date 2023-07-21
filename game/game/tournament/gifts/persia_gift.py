@@ -9,15 +9,16 @@ from game.weapons.close_combat.swords import SimpleSword
 from game.weapons.magic_combat.staves import SimpleStave
 from game.weapons.ranged_combat.bows import SimpleBow
 
-sword = SimpleSword('Тевтонский меч', 'отличная сталь с позолотой', 30, 15)
-bow = SimpleBow('Тевтонский лук', 'крепкий дуб с позолотой', 20, 20, 15)
-stave = SimpleStave('Тевтонский магический посох', 'чёрное дерево', 15, 15)
+sword = SimpleSword('Персидский клинок', 'дамасская сталь', 37, 25)
+bow = SimpleBow('Персидский лук', 'составное дерево', 35, 20, 20)
+stave = SimpleStave('Персидский посох', 'кости животных и золото',
+                    25, 15)
 
 
-def teutonic_tournament_gift(hero, weapons, max_health_hero):
-    """Подарок тевтонского магистра."""
+def persia_tournament_gift(hero, weapons, max_health_hero):
+    """Подарок персидского шаха."""
     hero_id = return_hero_id(hero.name)
-    hero.teutonic = 1
+    hero.persia = 1
     random_gift = randint(1, 5)
     if random_gift == 1:
         print(sword)
@@ -85,20 +86,20 @@ def teutonic_tournament_gift(hero, weapons, max_health_hero):
         gift = input(COMMAND)
         if gift == '1':
             print(THANKS)
-            max_health_hero += 50
-            hero.force += 5
-            hero.dexterity += 5
-            hero.magic += 5
-            hero.speed += 5
+            max_health_hero += 80
+            hero.force += 12
+            hero.dexterity += 12
+            hero.magic += 12
+            hero.speed += 12
         else:
             print(NO_THANKS)
     elif random_gift == 5:
-        print('Рыцарская броня')
+        print('Персидская броня')
         print(GIFT)
         gift = input(COMMAND)
         if gift == '1':
             print(THANKS)
-            hero.protection += 10
+            hero.protection += 24
         else:
             print(NO_THANKS)
     values = (max_health_hero, hero.force,

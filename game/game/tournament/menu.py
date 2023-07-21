@@ -4,16 +4,19 @@ from game.heroes.base_hero import BaseHero
 from game.random_number_func import random_phrase
 from game.texts.actions import COMMAND, ERROR_LIST
 from game.texts.menu_messages import END
-from game.texts.tournament_messages import (COMPLETED, NOT_AVAILABLE,
-                                            TOURNAMENT_MENU)
+from game.texts.tournament_messages import (COMPLETED, COMPLETED_FINAL,
+                                            NOT_AVAILABLE, TOURNAMENT_MENU)
 from game.weapons.close_combat.swords import SimpleSword
 from game.weapons.magic_combat.staves import SimpleStave
 from game.weapons.ranged_combat.bows import SimpleBow
 
-from .teutonic_tournament import teutonic_tournament_begin
-from .tsar_tournament import tsar_tournament_begin
+from .barbarians_tournament import barbarians_tournament_begin
+from .koschei_tournament import koschei_tournament_begin
+from .persia_tournament import persia_tournament_begin
 from .polovtsian_tournament import polovistan_tournament_begin
 from .rome_tournament import rome_tournament_begin
+from .teutonic_tournament import teutonic_tournament_begin
+from .tsar_tournament import tsar_tournament_begin
 
 inventary_hero = [None, None, None]
 
@@ -100,8 +103,41 @@ def tournament_menu(hero_name):
                     print(NOT_AVAILABLE)
             else:
                 print(COMPLETED)
-        elif command in ['5', '6', '7']:
-            print('В разработке!')
+        elif command == '5':
+            if hero.persia == 0:
+                if (hero.tsar == 1 and hero.teutonic == 1
+                   and hero.polovistan == 1 and hero.rome == 1):
+                    persia_tournament_begin(
+                        hero, hero_weapons
+                    )
+                else:
+                    print(NOT_AVAILABLE)
+            else:
+                print(COMPLETED)
+        elif command == '6':
+            if hero.barbarians == 0:
+                if (hero.tsar == 1 and hero.teutonic == 1
+                   and hero.polovistan == 1 and hero.rome == 1
+                   and hero.persia == 1):
+                    barbarians_tournament_begin(
+                        hero, hero_weapons
+                    )
+                else:
+                    print(NOT_AVAILABLE)
+            else:
+                print(COMPLETED)
+        elif command == '7':
+            if hero.koschei == 0:
+                if (hero.tsar == 1 and hero.teutonic == 1
+                   and hero.polovistan == 1 and hero.rome == 1
+                   and hero.persia == 1 and hero.barbarians == 1):
+                    koschei_tournament_begin(
+                        hero, hero_weapons
+                    )
+                else:
+                    print(NOT_AVAILABLE)
+            else:
+                print(COMPLETED_FINAL)
         elif command == '0':
             print(END)
             return
