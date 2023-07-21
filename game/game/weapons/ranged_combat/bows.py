@@ -51,3 +51,12 @@ def create_bow_4(full_name):
     bow.ammunition = randint(15, 20)
     bow.long_shot = randint(10, 14)
     return bow
+
+
+def create_bow_5(full_name):
+    bow = SimpleBow('name', 'чёрное дерево', 1, 2, 3)
+    bow.name = full_name
+    bow.shot_power = randint(15, 20)
+    bow.ammunition = randint(15, 20)
+    bow.long_shot = randint(15, 20)
+    return bow

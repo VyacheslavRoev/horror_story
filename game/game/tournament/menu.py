@@ -13,6 +13,7 @@ from game.weapons.ranged_combat.bows import SimpleBow
 from .teutonic_tournament import teutonic_tournament_begin
 from .tsar_tournament import tsar_tournament_begin
 from .polovtsian_tournament import polovistan_tournament_begin
+from .rome_tournament import rome_tournament_begin
 
 inventary_hero = [None, None, None]
 
@@ -88,7 +89,18 @@ def tournament_menu(hero_name):
                     print(NOT_AVAILABLE)
             else:
                 print(COMPLETED)
-        elif command in ['4', '5', '6', '7']:
+        elif command == '4':
+            if hero.rome == 0:
+                if (hero.tsar == 1 and hero.teutonic == 1
+                   and hero.polovistan == 1):
+                    rome_tournament_begin(
+                        hero, hero_weapons
+                    )
+                else:
+                    print(NOT_AVAILABLE)
+            else:
+                print(COMPLETED)
+        elif command in ['5', '6', '7']:
             print('В разработке!')
         elif command == '0':
             print(END)

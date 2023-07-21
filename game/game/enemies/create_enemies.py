@@ -51,7 +51,7 @@ def create_enemy_lev_3(full_name):
 
 
 def create_enemy_lev_4(full_name):
-    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 100, 4)
+    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 80, 4)
     enemy.name = full_name
     enemy.health = randint(500, 600)
     enemy.force = randint(30, 35)
@@ -64,7 +64,7 @@ def create_enemy_lev_4(full_name):
 
 
 def create_enemy_lev_5(full_name):
-    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 100, 4)
+    enemy = BaseEnemy('name', 100, 5, 5, 5, 5, 5, 5, 100, 5)
     enemy.name = full_name
     enemy.health = randint(800, 1000)
     enemy.force = randint(50, 60)

@@ -42,3 +42,11 @@ def create_stave_4(full_name):
     stave.magic_power = randint(10, 15)
     stave.long_shot = randint(7, 12)
     return stave
+
+
+def create_stave_5(full_name):
+    stave = SimpleStave('name', 'красное дерево', 1, 2)
+    stave.name = full_name
+    stave.magic_power = randint(15, 17)
+    stave.long_shot = randint(10, 15)
+    return stave

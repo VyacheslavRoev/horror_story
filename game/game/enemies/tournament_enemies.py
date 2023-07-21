@@ -2,11 +2,12 @@ from game.weapons.create_weapon import (create_name_weapon,
                                         create_weapon_lev_1,
                                         create_weapon_lev_2,
                                         create_weapon_lev_3,
-                                        create_weapon_lev_4)
+                                        create_weapon_lev_4,
+                                        create_weapon_lev_5)
 
 from .create_enemies import (create_enemy_lev_1, create_enemy_lev_2,
                              create_enemy_lev_3, create_enemy_lev_4,
-                             create_name_enemy)
+                             create_enemy_lev_5, create_name_enemy)
 
 
 def preparation_enemy_1():
@@ -42,4 +43,13 @@ def preparation_enemy_4():
     enemy = create_enemy_lev_4(full_name)
     weapon_full_name = create_name_weapon()
     weapon = create_weapon_lev_4(weapon_full_name)
+    return enemy, weapon
+
+
+def preparation_enemy_5():
+    """Подготовка противника 5 уровня."""
+    full_name = create_name_enemy()
+    enemy = create_enemy_lev_5(full_name)
+    weapon_full_name = create_name_weapon()
+    weapon = create_weapon_lev_5(weapon_full_name)
     return enemy, weapon
