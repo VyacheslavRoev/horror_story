@@ -41,8 +41,8 @@ def create_tables():
         ammunition INTEGER,
         long_shot INTEGER,
         durability INTEGER,
-        hero_id INTEGER,
-        FOREIGN KEY(hero_id) REFERENCES heroes(id)
+        hero_id INTEGER NOT NULL,
+        FOREIGN KEY (hero_id) REFERENCES heroes (id) ON DELETE CASCADE
         )
         """)
 
@@ -129,14 +129,33 @@ def return_id_weapon(name, hero_id):
 
 
 def delete_weapon_hero(weapon_id):
-    """Удаление оружия по го ID."""
+    """Удаление оружия по его ID."""
     with sl.connect('./horror_story.sqlite') as con:
         cur = con.cursor()
+        try:
+            cur.execute('''
+            DELETE
+            FROM weapons
+            WHERE id=?''', (weapon_id,))
+        except Exception:
+            print('Error: Не удалось удалить оружие!')
+            con.rollback()
+        con.commit()
 
-        cur.execute('''
-        DELETE
-        FROM weapons
-        WHERE id=?''', (weapon_id,))
+
+def delete_hero(hero_id):
+    """Удаление героя по его ID."""
+    with sl.connect('./horror_story.sqlite') as con:
+        cur = con.cursor()
+        try:
+            cur.execute('PRAGMA foreign_keys = ON;')
+            cur.execute('''
+            DELETE
+            FROM heroes
+            WHERE id=?''', (hero_id,))
+        except Exception:
+            print('Error: Не удалось удалить героя!')
+            con.rollback()
         con.commit()
 
 

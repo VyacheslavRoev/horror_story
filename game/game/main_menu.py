@@ -5,6 +5,7 @@ from game.texts.menu_messages import END, HELLO, MAIN_MENU
 from game.trainings.training_hero import traning_menu
 from database.validators import check_name_hero_tournament
 from game.tournament.menu import tournament_menu
+from database.db import return_hero_id, delete_hero
 
 
 def menu():
@@ -25,7 +26,13 @@ def menu():
             else:
                 tournament_menu(hero_name)
         elif menu_command == '4':
-            print('В разработке!')
+            hero_name = input('Введите имя героя: ')
+            hero = check_name_hero_tournament(hero_name)
+            if hero == FAIL:
+                print('Персонаж не найден!')
+            else:
+                hero_id = return_hero_id(hero_name)
+                delete_hero(hero_id)
         elif menu_command == '5':
             print(END)
         else:
