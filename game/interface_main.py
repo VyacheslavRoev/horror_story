@@ -1,11 +1,10 @@
 from database.db import create_tables
-from interface.interface_window import window_interface
+from interface.window import Aplication
 
 
 def main():
-    create_tables()
-    window_interface()
-
+    Aplication()
+    
 
 if __name__ == '__main__':
     main()
