@@ -1,4 +1,4 @@
-from game.weapons.base_weapon import WeaponBase
+from interface_game.weapons.base_weapon import WeaponBase
 
 
 class BaseMagicCombat(WeaponBase):
@@ -18,14 +18,15 @@ class BaseMagicCombat(WeaponBase):
 
     def get_weapon_enemy(self):
         """Информация об оружии противника."""
-        return (f'{self.name}, '
-                f'Изготовленный из материала - {self.material}, '
-                f'Класс оружия - {self.class_weapon}.')
+        return (f'''
+{self.name},
+Изготовленный из материала - {self.material},
+Класс оружия - {self.class_weapon}.''')
 
     def __str__(self):
-        return (
-            f'{self.name}. '
-            f'Класс - {self.class_weapon}. '
-            f'Изготовлен из материала {self.material}. '
-            f'Сила удара - {self.magic_power}. '
-            f'Дальность поражения - {self.long_shot}.')
+        return (f'''
+{self.name}.
+Класс - {self.class_weapon}.
+Изготовлен из материала {self.material}.
+Сила удара - {self.magic_power}.
+Дальность поражения - {self.long_shot}.''')

@@ -12,9 +12,3 @@ training_enemy_3 = BaseEnemy(
     )
 
 list_training_enemy = [training_enemy, training_enemy_2, training_enemy_3]
-
-
-def get_training_enemy(index):
-    """Выбор противника для тренировки."""
-    index_enemy = int(index) - 1
-    return list_training_enemy[index_enemy]

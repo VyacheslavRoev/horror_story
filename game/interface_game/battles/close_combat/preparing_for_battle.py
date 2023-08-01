@@ -1,9 +1,9 @@
-from game.heroes.inventary_hero import get_weapon
-from game.heroes.walking_hero import run_hero, walking_hero_enemy
-from game.random_number_func import random_phrase
-from game.texts.actions import (COMMAND, ERROR_LIST, FINISH, FAIL,
-                                INVENTARY_WEAPON_MESSAGE)
-from game.texts.attack_messages import CLOSE_ATTACK
+from interface_game.heroes.inventary_hero import get_weapon
+from interface_game.heroes.walking_hero import run_hero, walking_hero_enemy
+from interface_game.random_number_func import random_phrase
+from interface_game.texts.actions import (COMMAND, ERROR_LIST, FAIL, FINISH,
+                                          INVENTARY_WEAPON_MESSAGE)
+from interface_game.texts.attack_messages import CLOSE_ATTACK
 
 from .hero_attack import attack_close_combat
 

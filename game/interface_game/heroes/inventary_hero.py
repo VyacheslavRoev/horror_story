@@ -1,7 +1,6 @@
 def list_inventary(inventary):
     """Вывод инвентаря."""
-    for i in inventary:
-        print(i)
+    pass
 
 
 def get_weapon(index, inventary):

@@ -20,14 +20,13 @@ class SimpleSword(CloseBase):
                 f'Прочность снижена на 10 ед.')
 
     def __str__(self):
-        return (
-            f'{self.name}. '
-            f'Класс - {self.class_weapon}. '
-            f'Он изготовлен из материала {self.material}, '
-            f'Рубящий удар - {self.impact_force}, '
-            f'Колющий удар - {self.injection}, '
-            f'Прочности осталось - {self.durability} ед.'
-        )
+        return (f'''
+{self.name}.
+Класс - {self.class_weapon}.
+Он изготовлен из материала {self.material},
+Рубящий удар - {self.impact_force},
+Колющий удар - {self.injection},
+Прочности осталось - {self.durability} ед.''')
 
 
 def create_sword_1(full_name):

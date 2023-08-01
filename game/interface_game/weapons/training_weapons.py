@@ -14,9 +14,6 @@ training_stave_2 = SimpleStave('Жезл ученика', 'берёза', 10, 10
 list_enemy_training_weapons = [
     traning_sword_2, training_bow_2, training_stave_2
     ]
-
-
-def get_enemy_training_weapons(index):
-    """Выбор оружия противника для тренировки."""
-    index_weapons = int(index) - 1
-    return list_enemy_training_weapons[index_weapons]
+list_training_weapons = [
+    traning_sword, training_bow, training_stave
+]

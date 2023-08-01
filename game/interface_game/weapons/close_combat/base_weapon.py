@@ -1,5 +1,5 @@
 """Базовый класс оружия ближнего боя."""
-from game.weapons.base_weapon import WeaponBase
+from interface_game.weapons.base_weapon import WeaponBase
 
 
 class CloseBase(WeaponBase):
@@ -24,6 +24,7 @@ class CloseBase(WeaponBase):
 
     def get_weapon_enemy(self):
         """Информация об оружии противника."""
-        return (f'{self.name}, '
-                f'Изготовленный из материала - {self.material}, '
-                f'Класс оружия - {self.class_weapon}.')
+        return (f'''
+{self.name},
+Изготовленный из материала - {self.material},
+Класс оружия - {self.class_weapon}.''')
